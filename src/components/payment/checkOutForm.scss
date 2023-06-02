@@ -1,0 +1,45 @@
+@import "../../styles/colors.scss";
+
+.checkOutForm {
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    > button {
+      width: 6rem;
+      height: 2rem;
+      font-size: 1rem;
+      margin: 2rem 0;
+      border: 2px solid rgb(101, 101, 209);
+      padding-right: 0.2rem;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: $lightblue;
+        color: white;
+        border: none;
+      }
+    }
+  }
+}
+
+.cardElement {
+  height: 3rem;
+  margin-top: 4rem;
+}
+
+@media screen and (max-width:800px) {
+  .checkOutForm {
+    > form {
+      width: 50%;
+      height: 100%;
+    }
+  }
+}

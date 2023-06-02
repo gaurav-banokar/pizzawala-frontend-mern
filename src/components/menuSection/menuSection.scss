@@ -1,0 +1,16 @@
+.menuSection {
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+   padding: 5rem 2rem;
+}
+
+@media screen and (max-width:800px) {
+   .menuSection {
+    flex-direction: column;
+    
+   }
+}

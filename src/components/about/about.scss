@@ -1,0 +1,92 @@
+@import "../../styles/colors.scss";
+
+.about {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  background-color: rgba(238, 101, 101, 0.91);
+}
+// .first {
+//     display: flex;
+//     width: 100%;
+//     height: 30vh;
+//     justify-content:space-evenly;
+//     margin-top: 3rem;
+//     >img {
+//         width:12rem;
+//         height: 12rem;
+//         border-radius: 100%;
+//         animation: imgAnimate 2s infinite alternate;
+//         transition: all 0.5s;
+//         &:last-child {
+//             top:5vmax;
+//             position: relative;
+//             top: 5vmax;
+
+//         }
+//     }
+// }
+.first {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
+
+  > h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  > h3 {
+    font-size: 2.3rem; 
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: rgba(226, 226, 19, 0.922);
+    margin: 0.2rem;
+    text-shadow: 2px 0px 2px;
+ 
+  }
+  > h4 {
+    font-size: 1.5rem;
+    color: whitesmoke;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  > p {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 200;
+    color: whitesmoke;
+  }
+}
+.second {
+  > img {
+    width: 40vw;
+    max-height: 50vh;
+    box-shadow: 0 0 10px black;
+  }
+}
+
+@keyframes imgAnimate {
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@media  screen and (max-width:600px) {
+    .second {
+       > img {
+        width: 20rem;
+       }
+    }
+}

@@ -1,0 +1,43 @@
+@import "../../../styles/colors.scss";
+
+.paymentSuccess {
+    background-color: rgba(221, 221, 245, 0.899);
+    width: 100%;
+    height: 100vh;
+    > main {
+      height: 100vh;
+      background-color: white;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > h1 {
+        position: absolute;
+        top: 14vmax;
+        text-align: center;
+        margin: 3rem;
+        font: 300 2rem "Roboto";
+      }
+
+      > p {
+        margin-bottom: 1rem ;
+      }
+  
+      > a {
+        background-color: $lightblue;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin: 1.4rem;
+        text-align: center;
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+    }
+  }

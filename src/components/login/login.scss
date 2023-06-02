@@ -1,0 +1,25 @@
+@import "../../styles/colors.scss";
+
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        display: flex;
+        width: 12rem;
+        height: 2.6rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: white;
+
+        > svg {
+            margin-right: 0.5rem;
+        }
+
+        &:hover {
+            color: $lightblue;
+        }
+    }
+}

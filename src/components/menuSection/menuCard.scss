@@ -1,0 +1,65 @@
+@import "../../styles/colors.scss";
+
+.menuItemCard {
+    width: 15vmax;
+    height: 22vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgb(99, 98, 98);
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(65, 65, 65, 0.849);
+    margin: 1rem;
+    transition: all 0.4S;
+
+    &:hover {
+        transform: translateY(-10px);
+        // transition: all 0.2s;
+        cursor: pointer;
+    }
+    a {
+        margin: 0.5rem;
+        
+        > img {
+            width: fit-content;
+            height:10vmax;
+        }
+    }
+     > h6 {
+        color: red;
+     }
+    >p {
+        margin: 0.3rem;
+        font-size: 1.3rem;
+    }
+    > button {
+        width: 7vmax;
+        height: 2.5vmax;
+        background-color:$lightblue ;
+        color: white;
+        border-radius: 5px;
+        margin-top: 5px;
+        }
+}
+
+@media screen and (max-width:800px){
+    .menuItemCard {
+        width: 26vmax;
+        height: 38vmax;
+
+      > a > img {
+        width: 8rem;
+        height: 8rem;
+      }
+    
+    >h6 {
+        font-size: 1.3rem;
+    }
+    > button {
+        width: 14vmax;
+        height: 3rem; 
+    }
+}
+}
