@@ -25,7 +25,7 @@ const Payment = () => {
 
       setKeyData(loadStripe(stripePubKey.data.stripeApiKey));
       const { data } = await axios.post(
-        `http://localhost:5000/api/v1/create-payment-intent`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/create-payment-intent`,
         { total: total },
         {
           withCredentials: true,
