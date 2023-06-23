@@ -78,7 +78,7 @@ function App() {
     <div className="App">
 
       {
-        items !== null ? ( <Router>
+        items.length !== 0 ? ( <Router>
           <Header isAuthenticated={isAuthenticated} />
           
           <Routes>
