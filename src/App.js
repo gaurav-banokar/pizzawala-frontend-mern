@@ -35,6 +35,7 @@ import NotFound from "./components/layout/notFound/NotFound";
 
 //styles
 import "./styles/app.scss";
+import { getAllItemsAction } from "./redux/actions/itemAction";
 
 
 
@@ -68,6 +69,7 @@ function App() {
 
   useEffect(() => {
     dispatch(loadUser())
+    dispatch(getAllItemsAction())
 
   }, [dispatch])
 

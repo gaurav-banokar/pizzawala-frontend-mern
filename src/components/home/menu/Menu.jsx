@@ -20,14 +20,6 @@ const Menu = () => {
   const { items } = useSelector((state) => state.items);
   
   
-  
-  useEffect(() => {
-    dispatch(getAllItemsAction());
-  }, [dispatch]);
-
-
-
-
  
   const addToCartHandler = async(id,quantity) => {
      await dispatch(addToCart(id,quantity));
