@@ -27,16 +27,23 @@
     > input {
       margin: 1rem 0;
       width: 28rem;
-      border: 1px solid rgba(45, 44, 44, 0.952);
-      &:hover {
-        outline: none;
+      // border: 1px solid rgba(45, 44, 44, 0.952);
+      &:focus {
+        outline-style: none;
+        box-shadow: none;
+        border: 1px solid rgba(45, 44, 44, 0.952);
+        
       }
     }
 
     > textarea {
       width: 28rem;
       margin: 1rem 0;
-      border: 1px solid rgba(45, 44, 44, 0.952);
+      &:focus {
+        outline-style: none;
+        box-shadow: none;
+        border: 1px solid rgba(45, 44, 44, 0.952);
+      }
     }
 
     > button {

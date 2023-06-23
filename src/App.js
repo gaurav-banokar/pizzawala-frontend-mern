@@ -25,16 +25,16 @@ import MenuSection from "./components/menuSection/MenuSection";
 import MyOrders from "./components/myOrders/MyOrders";
 // import Payment from "./components/payment/Payment";
 // import { server } from "./redux/store";
+import Payment from "./components/payment/Payment";
+import OrderDetails from "./components/myOrders/OrderDetails";
+import Loader from "./components/loader/Loader";
+import NotFound from "./components/layout/notFound/NotFound";
 
 
 
 
 //styles
 import "./styles/app.scss";
-import Payment from "./components/payment/Payment";
-import OrderDetails from "./components/myOrders/OrderDetails";
-import Loader from "./components/loader/Loader";
-import NotFound from "./components/layout/notFound/NotFound";
 
 
 
@@ -56,6 +56,7 @@ function App() {
 
 
   const { isAuthenticated, error, user } = useSelector((state) => state.auth)
+  const { items } = useSelector((state) => state.items)
 
   useEffect(() => {
     if (error) {
@@ -75,37 +76,43 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Header isAuthenticated={isAuthenticated} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/menu" element={<MenuSection />} />
 
-          <Route path="/cart" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Cart /></ProtectedRoute>} />
-          <Route path="/me" element={<ProtectedRoute isAuthenticated={isAuthenticated}><MyProfile admin={user && user.role === "admin"} /></ProtectedRoute>} />
-          <Route path="/shipping" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Shipping /></ProtectedRoute>} />
+      {
+        items !== null ? ( <Router>
+          <Header isAuthenticated={isAuthenticated} />
+          
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/menu" element={<MenuSection />} />
+  
+            <Route path="/cart" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Cart /></ProtectedRoute>} />
+            <Route path="/me" element={<ProtectedRoute isAuthenticated={isAuthenticated}><MyProfile admin={user && user.role === "admin"} /></ProtectedRoute>} />
+            <Route path="/shipping" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Shipping /></ProtectedRoute>} />
+  
+            {/* {stripeApiKey && <Route path="/payment" element={<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute isAuthenticated={isAuthenticated}><Payment /></ProtectedRoute></Elements>} />} */}
+  
+            <Route path="/confirmorder" element={<ProtectedRoute isAuthenticated={isAuthenticated}><ConfirmOrder /></ProtectedRoute>} />
+            <Route path="/paymentprocess" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Payment /></ProtectedRoute>} />
+            <Route path="/paymentsuccess" element={<ProtectedRoute isAuthenticated={isAuthenticated}><PaymentSuccess /></ProtectedRoute>} />
+            <Route path="/myorders" element={<ProtectedRoute isAuthenticated={isAuthenticated}><MyOrders /></ProtectedRoute>} />
+            <Route path="/myorders/order/:id" element={<ProtectedRoute isAuthenticated={isAuthenticated}><OrderDetails /></ProtectedRoute>} />
+  
+            <Route path="/emptycart" element={<EmptyCart />} />
+  
+            <Route path="/admin/item/new" element={<ProtectedRoute isAuthenticated={true} ><NewItem admin={user && user.role === "admin"} /></ProtectedRoute>} />
+  
+            <Route path="/loader" element={<Loader />} />
+            <Route path="*" element= {<NotFound />} />
+          </Routes>
+          <Footer />
+        </Router>
+       ) : <Loader/>
 
-          {/* {stripeApiKey && <Route path="/payment" element={<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute isAuthenticated={isAuthenticated}><Payment /></ProtectedRoute></Elements>} />} */}
-
-          <Route path="/confirmorder" element={<ProtectedRoute isAuthenticated={isAuthenticated}><ConfirmOrder /></ProtectedRoute>} />
-          <Route path="/paymentprocess" element={<ProtectedRoute isAuthenticated={isAuthenticated}><Payment /></ProtectedRoute>} />
-          <Route path="/paymentsuccess" element={<ProtectedRoute isAuthenticated={isAuthenticated}><PaymentSuccess /></ProtectedRoute>} />
-          <Route path="/myorders" element={<ProtectedRoute isAuthenticated={isAuthenticated}><MyOrders /></ProtectedRoute>} />
-          <Route path="/myorders/order/:id" element={<ProtectedRoute isAuthenticated={isAuthenticated}><OrderDetails /></ProtectedRoute>} />
-
-          <Route path="/emptycart" element={<EmptyCart />} />
-
-          <Route path="/admin/item/new" element={<ProtectedRoute isAuthenticated={true} ><NewItem admin={user && user.role === "admin"} /></ProtectedRoute>} />
-
-          <Route path="/loader" element={<Loader />} />
-          <Route path="*" element= {<NotFound />} />
-        </Routes>
-        <Footer />
-      </Router>
-      <Toaster />
+      }
+     <Toaster/>
     </div>
   );
 }

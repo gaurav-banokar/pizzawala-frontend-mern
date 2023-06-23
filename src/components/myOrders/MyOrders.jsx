@@ -14,7 +14,7 @@ const MyOrders = () => {
   const navigate = useNavigate();
   const { orders, loading, error } = useSelector((state) => state.orders);
   const { user } = useSelector((state) => state.auth);
-  console.log("userrr:",user)
+ 
 
   useEffect(() => {
     if (!user) {
@@ -22,6 +22,7 @@ const MyOrders = () => {
       toast.error("Login Required");
       dispatch({ type: "clearError" });
     }
+    console.log(user)
     dispatch(getMyOrders(user._id));
   }, [dispatch, error,navigate]);
 

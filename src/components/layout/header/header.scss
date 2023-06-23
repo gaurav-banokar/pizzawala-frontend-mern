@@ -18,12 +18,11 @@
 .headerElement {
   font-size: 1.1vmax;
   text-decoration: none;
-  color: rgba(19, 24, 31, 0.937);
+  color: rgba(28, 27, 27, 0.725);
   font-weight: 600;
   font-family: sans-serif;
   margin: 0.8vmax 1.3vmax;
   padding: 0.5vmax;
-  /* border: 1px solid red; */
 }
 .headerElement:hover {
   text-decoration: none;
@@ -37,9 +36,21 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  //   box-sizing: border-box;
+  box-sizing: border-box;
   border: none;
-  outline: none;
+
+  > input {
+    width: 17vmax;
+    margin-left: 0.5vmax;
+    padding: 0.1vmax 0;
+    font-size: 1rem;
+    border-radius: 50px;
+    &:focus {
+      outline-style: none;
+      box-shadow: none;
+      border: none;
+    }
+  }
 }
 .cartArea {
   width: 10%;
@@ -47,7 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1vmax;
+  padding: 0.6rem;
   box-sizing: border-box;
 
   > div svg {
@@ -55,7 +66,6 @@
     margin-left: 15px;
     margin-top: 3px;
   }
-  /* border: 1px solid red; */
 }
 .cartArea :hover {
   cursor: pointer;
@@ -63,57 +73,57 @@
 }
 .right > svg {
   font-size: 1.6rem;
+  color: rgba(28, 27, 27, 0.725);
 }
 .right > svg :hover {
   cursor: pointer;
 }
 
-.right input {
-  width: 17vmax;
-  margin-left: 0.5vmax;
-  padding: 0.1vmax 0;
-  border: none;
-  border-bottom: 1px solid black;
-  outline: none;
-  font-size: 1vmax;
+.svg-cartarea {
+  color: rgba(28, 27, 27, 0.9);
 }
 
 @media screen and (max-width: 600px) {
   .header {
     margin-bottom: 0;
     width: 100%;
-  }
-  .left {
-    width: 40%;
 
-    > a {
-      font-size: 2rem;
-    }
-    > .headerElement {
-      margin: 0;
-      font-size: 1.1vmax;
-    }
-  }
-
-  .right {
-    width: 25%;
-    margin-top: 0.1rem;
-
-    > input {
-      width: 6.9vmax;
+    .left {
+      width: 50%;
+      max-height: fit-content;
+      > a {
+        font-size: 0.8rem;
+        margin: 0;
+        padding: 0;
+        margin-right: 9px;
+        color: rgba(28, 27, 27, 0.9);
+      }
     }
 
-    > svg {
-      font-size: 1.2rem;
+    .right {
+      width: 25%;
+      margin-top: 0.1rem;
+      padding: 0;
+      max-height: fit-content;
+      > input {
+        width: 70px;
+        height: 20px;
+        font-size: 0.8rem;
+        margin-left: 5px;
+      }
+
+      > svg {
+        font-size: 1.2rem;
+      }
     }
-  }
-  .cartArea {
-    width: 25%;
-    left: 0;
-    > div > a > svg {
-      font-size: 1.2rem;
-      margin-left: 8px;
-      margin-top: 3px;
+    .cartArea {
+      width: 20%;
+      left: 0;
+      > div > a > svg {
+        font-size: 1.2rem;
+        margin-left: 8px;
+        margin-top: 3px;
+      }
     }
   }
 }

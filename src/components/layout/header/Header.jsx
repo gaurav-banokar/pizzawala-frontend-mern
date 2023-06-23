@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
 import { FiLogIn } from "react-icons/fi";
-import { FiShoppingCart } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -27,17 +27,17 @@ const Header = ({ isAuthenticated }) => {
 
       <div className="right">
         <AiOutlineSearch />
-        <input type="text" id="searchSpace" />
+        <input type="text" />
       </div>
 
       <div className="cartArea">
         <div>
-          <Link to="/cart">
+          <Link to="/cart" className="svg-cartarea">
             <FiShoppingCart />
           </Link>
         </div>
         <div>
-          <Link to={isAuthenticated ? "/me" : "/login"}>
+          <Link to={isAuthenticated ? "/me" : "/login"} className="svg-cartarea">
             {isAuthenticated ? <FaUser /> : <FiLogIn />}
           </Link>
         </div>
