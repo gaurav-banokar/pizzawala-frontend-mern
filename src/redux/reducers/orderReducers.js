@@ -22,11 +22,14 @@ export const orderReducers = createReducer({}, {
   },
 
 })
-const orders = localStorage.getItem("orders") != null ? JSON.parse(localStorage.getItem("orders")) : []
 
-const eachOrder = localStorage.getItem("eachOrder") != null ? JSON.parse(localStorage.getItem("eachOrder")) :[]
+const orders = localStorage.getItem("orders") !== null ? JSON.parse(localStorage.getItem("orders")) : []
+
+const eachOrder = localStorage.getItem("eachOrder") != null ? JSON.parse(localStorage.getItem("eachOrder")) : []
+
+
 export const ordersReducers = createReducer(
-  { orders: orders , eachOrder},
+  { orders: orders, eachOrder },
   {
     getMyOrdersRequest: (state) => {
       state.loading = true;
@@ -40,6 +43,8 @@ export const ordersReducers = createReducer(
     getMyOrdersFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+
+      localStorage.setItem("orders", JSON.stringify(state.orders = null))
     },
     getOrderDetailsRequest: (state) => {
       state.loading = true;
@@ -48,11 +53,13 @@ export const ordersReducers = createReducer(
       state.loading = false;
       state.eachOrder = action.payload;
 
-      localStorage.setItem("eachOrder",JSON.stringify(state.eachOrder))
+      localStorage.setItem("eachOrder", JSON.stringify(state.eachOrder))
     },
     getOrderDetailsFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+
+      localStorage.setItem("eachOrder", JSON.stringify(state.eachOrder = null))
     },
 
     clearError: (state) => {

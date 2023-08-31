@@ -32,8 +32,8 @@ const optionsTwo = {
 }
 
   return (
-    <section className="emptyCart allSection">
-       <motion.span  {...options}><MdAddShoppingCart /></motion.span>
+    <section className="emptyCart">
+       <motion.span  {...options}><MdAddShoppingCart color='red' size={"40px"}/></motion.span>
         <motion.h3 {...optionsTwo}>Cart is empty</motion.h3>
     </section>
   )

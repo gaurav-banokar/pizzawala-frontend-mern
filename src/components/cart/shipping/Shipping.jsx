@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 // scss
 import "./shipping.scss";
+import Heading from "../../layout/heading/Heading";
 
 const Shipping = () => {
   const dispatch = useDispatch();
@@ -35,93 +36,93 @@ const Shipping = () => {
     navigate("/confirmorder");
   };
   return (
-    <section className="shippingSection allSection">
-      <div className="shippingContainer allSectionContainer">
-        <main>
-          <h1>Shipping Details</h1>
-          <form onSubmit={submitHandler}>
-            <div>
-              <label>Country</label>
+    <section className="shippingSection ">
+      <div>
+        <Heading heading={"Shipping Details"} />
+      </div>
+      <main>
+        <form onSubmit={submitHandler}>
+          <div>
+            <label>Country</label>
 
+            <select
+              value={country}
+              required
+              onChange={(e) => setCountry(e.target.value)}
+            >
+              <option value="">Country</option>
+              {Country &&
+                Country.getAllCountries().map((i) => (
+                  <option value={i.isoCode} key={i.isoCode}>
+                    {i.name}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          {country && (
+            <div>
+              <label>State</label>
               <select
-                value={country}
                 required
-                onChange={(e) => setCountry(e.target.value)}
+                value={state}
+                onChange={(e) => setState(e.target.value)}
               >
-                <option value="">Country</option>
-                {Country &&
-                  Country.getAllCountries().map((i) => (
+                <option value="">State</option>
+                {State &&
+                  State.getStatesOfCountry(country).map((i) => (
                     <option value={i.isoCode} key={i.isoCode}>
                       {i.name}
                     </option>
                   ))}
               </select>
             </div>
+          )}
 
-            {country && (
-              <div>
-                <label>State</label>
-                <select
-                  required
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                >
-                  <option value="">State</option>
-                  {State &&
-                    State.getStatesOfCountry(country).map((i) => (
-                      <option value={i.isoCode} key={i.isoCode}>
-                        {i.name}
-                      </option>
-                    ))}
-                </select>
-              </div>
-            )}
+          <div>
+            <label>City</label>
+            <input
+              type="text"
+              placeholder="Enter City"
+              value={city}
+              required
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
 
-            <div>
-              <label>City</label>
-              <input
-                type="text"
-                placeholder="Enter City"
-                value={city}
-                required
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </div>
+          <div>
+            <label>H.No.</label>
+            <input
+              type="text"
+              placeholder="Enter House No."
+              value={hNo}
+              onChange={(e) => setHNo(e.target.value)}
+            />
+          </div>
 
-            <div>
-              <label>H.No.</label>
-              <input
-                type="text"
-                placeholder="Enter House No."
-                value={hNo}
-                onChange={(e) => setHNo(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label>Pin Code</label>
-              <input
-                type="number"
-                placeholder="Enter Pincode"
-                required
-                value={pinCode}
-                onChange={(e) => setPinCode(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Phone No.</label>
-              <input
-                type="number"
-                placeholder="Enter Phone No."
-                value={phoneNo}
-                required
-                onChange={(e) => setPhoneNo(e.target.value)}
-              />
-            </div>
-            <button type="submit">Confirm Order</button>
-          </form>
-        </main>
-      </div>
+          <div>
+            <label>Pin Code</label>
+            <input
+              type="number"
+              placeholder="Enter Pincode"
+              required
+              value={pinCode}
+              onChange={(e) => setPinCode(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Phone No.</label>
+            <input
+              type="number"
+              placeholder="Enter Phone No."
+              value={phoneNo}
+              required
+              onChange={(e) => setPhoneNo(e.target.value)}
+            />
+          </div>
+          <button type="submit">Confirm Order</button>
+        </form>
+      </main>
     </section>
   );
 };

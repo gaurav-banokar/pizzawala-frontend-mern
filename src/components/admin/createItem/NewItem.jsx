@@ -6,37 +6,32 @@ import { createItemAction } from "../../../redux/actions/itemAction";
 
 import toast from "react-hot-toast";
 import "./newItem.scss";
+import Heading from "../../layout/heading/Heading";
 
 const NewItem = () => {
   const [itemNumber, setItemNumber] = useState("");
   const [itemName, setItemName] = useState("");
-  const [itemImage,setItemImage] = useState("");
-    const [imagePrev,setImagePrev] = useState("");
+  const [itemImage, setItemImage] = useState("");
+  const [imagePrev, setImagePrev] = useState("");
   const [itemPrice, setItemPrice] = useState("");
 
   const dispatch = useDispatch();
   const { message, error } = useSelector((state) => state.item);
 
- 
-
   const imageHandler = (e) => {
     const file = e.target.files[0];
-    setImagePrev(e.target.value)
-    console.log(file)
-    
-  
+    setImagePrev(e.target.value);
+    console.log(file);
+
     const Reader = new FileReader();
     Reader.readAsDataURL(file);
 
     Reader.onload = () => {
-        if(Reader.readyState === 2){
-           setItemImage(file)
-          
-        }
-    }
-}
-
-
+      if (Reader.readyState === 2) {
+        setItemImage(file);
+      }
+    };
+  };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -44,18 +39,15 @@ const NewItem = () => {
     const myForm = new FormData();
     myForm.append("itemNumber", itemNumber);
     myForm.append("itemName", itemName);
-    
-    myForm.append("file",itemImage);
+
+    myForm.append("file", itemImage);
     myForm.append("itemPrice", itemPrice);
-   
-    
+
     dispatch(createItemAction(myForm));
     setItemNumber("");
     setItemName("");
     setImagePrev("");
     setItemPrice("");
-
-
   };
 
   useEffect(() => {
@@ -73,14 +65,12 @@ const NewItem = () => {
     }
   }, [dispatch, message, error]);
 
-  
-
   return (
     <>
-      <section className="largeContainer allSection">
-        <div className=" smallSection allSectionContainer">
+      <section className="largeContainer">
+        <div className=" smallSection">
           <div>
-            <h2>CREATE NEW PRODUCT</h2>
+            <Heading heading={"Create New Product"} />
           </div>
 
           <div className="productForm">
@@ -93,7 +83,7 @@ const NewItem = () => {
                 type="number"
                 name="itemNumber"
                 onChange={(e) => {
-                  setItemNumber(e.target.value)
+                  setItemNumber(e.target.value);
                 }}
                 placeholder="Product Number"
                 value={itemNumber}
@@ -110,7 +100,7 @@ const NewItem = () => {
               <input
                 type="file"
                 name="itemImage"
-                onChange= {imageHandler}
+                onChange={imageHandler}
                 value={imagePrev}
               />
               <input

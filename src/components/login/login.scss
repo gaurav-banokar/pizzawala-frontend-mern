@@ -2,24 +2,36 @@
 
 
 .login {
+    width: 100%;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     button {
         display: flex;
-        width: 12rem;
-        height: 2.6rem;
+        width: 220px;
+        height: 40px;
         justify-content: center;
         align-items: center;
         border-radius: 20px;
-        background-color: white;
-
-        > svg {
-            margin-right: 0.5rem;
+        background-color: $reddish;
+        font-size: 1rem;
+        color: white;
+        letter-spacing: 1px;
+        > span {
+            margin-right: 10px;
         }
-
         &:hover {
-            color: $lightblue;
+            color: #000;
+        }
+    }
+}
+
+@media (min-width:600px) and (max-width:1300px) {
+    .login {
+        > button {
+            width: 270px;
+            height: 50px;
         }
     }
 }

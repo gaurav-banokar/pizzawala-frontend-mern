@@ -4,7 +4,10 @@ import {motion} from "framer-motion";
 
 import "../menu/menu.scss"
 
-const MenuCard = ({ itemNum, pizzaSrc, price, title, id, handler,quantity, delay}) => {
+const MenuCard = ({ itemNum, pizzaSrc, price, title, category, id, handler,quantity, delay}) => {
+
+
+  
   return (
     <motion.div
     className="menuCard"
@@ -26,7 +29,8 @@ const MenuCard = ({ itemNum, pizzaSrc, price, title, id, handler,quantity, delay
 
       <h5>₹{price}</h5>
 
-      <p>{title}</p>
+      <p>{title} <span >{category === ("veg" || "nonVeg") ? category : ""}</span></p>
+     
       <button  onClick={()=> handler(id,quantity)}> Buy Now</button>
     
     </main>

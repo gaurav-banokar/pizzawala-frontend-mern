@@ -1,0 +1,28 @@
+@import "../../styles/colors.scss";
+
+.ordersNotFound {
+
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+    > h1 {
+        color:$reddish;
+    }
+    > a {
+        width: 90px;
+        height: 40px;
+        border: none;
+        background-color: $reddish;
+        color: #fff;
+        border-radius: 50px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+}

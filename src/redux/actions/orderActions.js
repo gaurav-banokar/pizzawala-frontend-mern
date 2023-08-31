@@ -89,13 +89,13 @@ export const createOrderOnline = (orderOptions) => async (dispatch) => {
 export const getMyOrders = (user) => async (dispatch) => {
 
     try {
-        
+        console.log("user_id",user)
         dispatch({ type: "getMyOrdersRequest" });
 
-        const { data } = await axios.get(`${server}/myOrders`,  {
+        const { data } = await axios.get(`${server}/myOrders?user=${user}`,  {
            
             withCredentials: true,
-        }, user);
+        });
         
 
         dispatch({ type: "getMyOrdersSuccess", payload: data.orders });
@@ -133,7 +133,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
       
         dispatch({ type: "getOrderDetailsRequest" });
 
-        const { data } = await axios.get(`${server}/myOrders/order/${id}`, {
+        const { data } = await axios.get(`${server}/myOrders/order?id=${id}`, {
             withCredentials: true,
         });
 

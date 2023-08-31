@@ -6,6 +6,7 @@ import { getOrderDetails } from "../../redux/actions/orderActions";
 import Loader from "../loader/Loader";
 
 import "./orderDetails.scss";
+import Heading from "../layout/heading/Heading";
 
 const OrderDetails = () => {
   const params = useParams();
@@ -20,9 +21,9 @@ const OrderDetails = () => {
 
   return (
     <section className="orderDetails">
+      <h1><Heading heading={"Order Details"}/></h1>
       {loading === false && eachOrder.length !== 0 ? (
         <main>
-          <h1>Order Details</h1>
           <div>
             <h1>Shipping</h1>
             <p>

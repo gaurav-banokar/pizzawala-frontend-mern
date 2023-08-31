@@ -1,13 +1,22 @@
-import React from 'react';
+import React from "react";
+import { Dna } from "react-loader-spinner";
 import "./loader.scss";
-
 
 const Loader = () => {
   return (
-    <div id='loader'>
-        <h2>Loading...</h2>
+    <div className="loaderSection">
+      <div className="loaderElement">
+        <Dna
+          visible={true}
+          height="40"
+          width="40"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

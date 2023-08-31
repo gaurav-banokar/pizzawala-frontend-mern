@@ -1,24 +1,25 @@
 @import "../../styles/colors.scss";
 
-.myOrders_container{
-   
-   > main {
+.myOrders {
+  width: 100%;
+  min-height: 100vh;
+  > div {
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    > main {
       max-width: 900px;
       background-color: white;
       margin: auto;
-      height: 100%;
-      
-      // display: flex;
-      // justify-content: flex-start;
-     
-  
+      overflow-x: auto;
       > table {
         width: 100%;
         text-align: center;
         border-collapse: collapse;
+
         tr {
           background-color: whitesmoke;
-  
+
           &:last-child {
             td:first-child {
               border-radius: 0 0 0 10px;
@@ -28,14 +29,14 @@
             }
           }
         }
-  
+
         td,
         th {
           padding: 1rem;
         }
-  
+
         th {
-          background-color: $dark;
+          background-color: $reddish;
           color: white;
           &:first-child {
             border-radius: 10px 0 0 0;
@@ -44,19 +45,16 @@
             border-radius: 0 10px 0 0;
           }
         }
-  
+
         td {
           color: $lightdark;
-  
+
           > img {
             width: 30px;
             height: 30px;
             border-radius: 100%;
           }
-  
-          > a {
-            color: $red;
-          }
+
           > button {
             border: none;
             cursor: pointer;
@@ -67,31 +65,47 @@
       }
     }
   }
+}
 
-  @media screen and (max-width:600px) {
-    .myOrders_container {
+@media screen and (max-width: 600px) {
+  .myOrderContainer {
+    width: 100%;
 
-    width:100%;
-    
-     > main {
+    > main {
       padding: 0;
       margin: 0;
       overflow-x: auto;
 
       > table {
-        > thead > th > {
-        font-size: 0.3rem;
+        > thead  {
+          > tr > th {
+            font-size: 0.3rem;
+          }
+        }
       }
-      
-    }
     }
   }
-  }
-  @media screen and (max-width:1679px) {
-    .myOrders_container {
+}
+@media (min-width: 700px) and (max-width: 1300px) {
+  .myOrders {
+    > div {
+      min-height: 90vh;
+      > main {
+        height: 100%;
+        > table {
+          > thead {
+            > tr > th {
+              font-size: 1.2rem;
+            }
+          }
+          > tbody {
 
-    width:100%;
-    
-  
+            > tr > td {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
   }
-  }
+}

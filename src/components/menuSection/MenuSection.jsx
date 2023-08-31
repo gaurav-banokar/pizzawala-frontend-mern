@@ -1,36 +1,64 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllItemsAction } from "../../redux/actions/itemAction";
-import { addToCart} from "../../redux/actions/cartActions";
-import MenuItemCard from "./MenuItemCard";
-import toast from "react-hot-toast";
-// import newpizza4 from "../../assets/newpizza4";
-import newpizza4 from "../../assets/newpizza4.png";
+import CategoriesNav from "./CategoriesNav";
+import MenuItemsGroup from "./MenuItemsGroup";
+import { motion } from "framer-motion";
+import {
+  getAllItemsByCategoryAction,
+  getAllItemsBySearchAction,
+} from "../../redux/actions/itemAction";
+
+import { BiSearchAlt } from "react-icons/bi";
 
 import "./menuSection.scss";
 
 const MenuSection = () => {
-
   const dispatch = useDispatch();
-  const{ items } = useSelector((state )=> state.items)
-
-  const addToCartHandler = async(id,quantity) => {
-    await dispatch(addToCart(id,quantity));
-   toast.success("Pizza added to cart")
- }
+  const { itemsByCategory } = useSelector((state) => state.itemsByCategory);
+  const { itemsBySearch } = useSelector((state) => state.itemsBySearch);
 
   useEffect(() => {
-    dispatch(getAllItemsAction())
-  }, [dispatch])
-  
+    dispatch(getAllItemsByCategoryAction("vegPizza"));
+  }, [dispatch]);
+
+  const [value, setValue] = useState("");
+  const [finalValue, setFinalValue] = useState("");
+
+  const handleInputChange = (e) => {
+    setValue(e.target.value);
+    if (e.target.value === "") {
+      setFinalValue("");
+    }
+  };
+
+  const searchHandler = () => {
+    setFinalValue(value);
+    dispatch(getAllItemsBySearchAction(value));
+  };
+
+  const displayedItems =
+    finalValue && finalValue ? itemsBySearch : itemsByCategory;
 
   return (
     <section className="menuSection">
-      {
-        items && items.map((item) => {
-         return <MenuItemCard key ={item._id} item ={item} image ={item.itemImage.url} handler = {addToCartHandler} />
-        })
-      }
+      <motion.div
+        initial={{ x: "100%", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        <input type="text" value={value} onChange={handleInputChange} />
+        <motion.button
+          type="submit"
+          onClick={searchHandler}
+          initial={{ x: "100%", opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <BiSearchAlt color="red" className="searchIcon" />
+        </motion.button>
+      </motion.div>
+      <CategoriesNav />
+      <MenuItemsGroup items={displayedItems} />
     </section>
   );
 };

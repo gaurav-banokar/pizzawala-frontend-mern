@@ -8,6 +8,7 @@ import { useRef } from "react";
 
 // scss importation
 import "./confirmOrder.scss";
+import Heading from "../../layout/heading/Heading.jsx";
 
 const ConfirmOrder = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
@@ -40,7 +41,6 @@ const ConfirmOrder = () => {
           user
         )
       );
-      
     } else {
       navigate("/paymentprocess");
     }
@@ -49,51 +49,50 @@ const ConfirmOrder = () => {
   useEffect(() => {
     if (message) {
       toast.success(message);
-      navigate("/paymentsuccess")
+      navigate("/paymentsuccess");
       dispatch({ type: "clearMessage" });
       dispatch({ type: "emptyState" });
-      
     }
     if (error) {
       toast.error(error);
-      navigate("cart")
+      navigate("cart");
       dispatch({ type: "clearError" });
       dispatch({ type: "emptyState" });
     }
-  }, [dispatch, message, error,navigate]);
+  }, [dispatch, message, error, navigate]);
 
   return (
-    <section className="confirmOrder_section allSection">
-      <div className="confirmOrder_container allSectionContainer">
-        <main>
-          <h1>Confirm Order</h1>
-
-          <form onSubmit={submitHandler}>
-            <div>
-              <label>Cash On Delivery</label>
-              <input
-                type="radio"
-                name="payment"
-                onChange={() => setPaymentMethod("COD")}
-                required
-              />
-            </div>
-            <div>
-              <label>Online</label>
-              <input
-                type="radio"
-                required
-                name="payment"
-                onChange={() => setPaymentMethod("Online")}
-              />
-            </div>
-
-            <button ref={placebtn} type="submit">
-              Place Order
-            </button>
-          </form>
-        </main>
+    <section className="confirmOrderSection">
+      <div>
+        <Heading heading={"Confirm Order"} />
       </div>
+
+      <main>
+        <form onSubmit={submitHandler}>
+          <div>
+            <label>Cash On Delivery</label>
+            <input
+              type="radio"
+              name="payment"
+              onChange={() => setPaymentMethod("COD")}
+              required
+            />
+          </div>
+          <div>
+            <label name= "payment">Online</label>
+            <input
+              type="radio"
+              required
+              name="payment"
+              onChange={() => setPaymentMethod("Online")}
+            />
+          </div>
+
+          <button ref={placebtn} type="submit">
+            Place Order
+          </button>
+        </form>
+      </main>
     </section>
   );
 };

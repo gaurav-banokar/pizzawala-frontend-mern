@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { contactFormAction } from "../../redux/actions/userAction";
 import "./contact.scss";
+import Heading from "../layout/heading/Heading";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -14,40 +15,38 @@ const Contact = () => {
   const [userMessage, setUserMessage] = useState("");
   const [disablebtn, setDisablebtn] = useState(false);
 
-  const { message , error} = useSelector(state => state.contact)
+  const { message, error } = useSelector((state) => state.contact);
 
   const contactFormHandler = (e) => {
     e.preventDefault();
- 
 
-   dispatch(contactFormAction({name,email,message:userMessage}));
+    dispatch(contactFormAction({ name, email, message: userMessage }));
 
-   setName("");
-   setEmail("");
-   setUserMessage("");
-   
+    setName("");
+    setEmail("");
+    setUserMessage("");
   };
 
   useEffect(() => {
-    if(message) {
+    if (message) {
       toast.success(message);
-      dispatch({ type: 'clearMessage' });
-    };
-
-    if(error){
-      toast.error(error);
-      dispatch({
-        type:"clearError"
-      })
+      dispatch({ type: "clearMessage" });
     }
 
+    if (error) {
+      toast.error(error);
+      dispatch({
+        type: "clearError",
+      });
+    }
   }, [dispatch, message, error]);
-  
 
   return (
-    <section className="contact allSection">
-      <div className="contactContainer allSectionContainer">
-        <h2>Contact Us</h2>
+    <section className="contact">
+      <div className="contactContainer">
+        <div>
+          <Heading heading={"Contact Us"} />
+        </div>
 
         <form onSubmit={contactFormHandler} encType="multipart/form-data">
           <input
@@ -71,7 +70,13 @@ const Contact = () => {
             rows="10"
           ></textarea>
 
-          <button type="submit" value={disablebtn} onClick={() => setDisablebtn(true)}>Send</button>
+          <button
+            type="submit"
+            value={disablebtn}
+            onClick={() => setDisablebtn(true)}
+          >
+            Send
+          </button>
         </form>
       </div>
     </section>

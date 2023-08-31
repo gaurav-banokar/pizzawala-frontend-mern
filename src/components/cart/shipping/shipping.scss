@@ -2,18 +2,18 @@
 
 .shippingSection {
   width: 100%;
-}
-.shippingContainer {
-    height: 120vh;
+  padding: 30px 0;
+  > div {
+    width: 100%;
+    height: 30%;
+  }
   > main {
-    height: 100vh;
     background-color: white;
-    max-width: 900px;
+    width: 50%;
     margin: auto;
     padding: 2rem;
 
     > h1 {
-      
       text-align: center;
       margin: 2rem;
       font-size: 2rem;
@@ -24,60 +24,94 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      overflow-y: hidden;
+      width: 100%;
+      padding: 30px 0;
+      box-shadow: 5px 5px 10px rgba(172, 169, 169, 0.879);
+      border-radius: 10px;
       > div {
         width: 70%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         > label {
+          width: 50%;
           white-space: nowrap;
+          color: $reddish;
         }
         > input,
         > select {
-          width: 15rem;
+          width: 50%;
           padding: 0.5rem 1rem;
           outline: none;
           border: 1px solid rgba(0, 0, 0, 0.172);
           border-radius: 5px;
-          margin: 1rem;
+          margin: 15px 0;
           font-size: 1rem;
+          color: $reddish;
+          &::-webkit-input-placeholder {
+            color: $reddish;
+          }
         }
       }
       > button {
-        background-color: $lightblue;
+        background-color: $reddish;
         color: white;
         outline: none;
         border: none;
         padding: 0.5rem 1rem;
         border-radius: 5px;
-        margin: 1.3rem;
+
         text-align: center;
         cursor: pointer;
         font-size: 1.1rem;
+        margin-top: 30px;
       }
     }
   }
 }
 
-@media screen and (max-width: 600px) {
-  .shippingContainer > main {
-    width: 100%;
-    padding: 0;
-  > form {
-    // width: 100%;
-    > div {
+@media screen and (max-width: 700px) {
+  .shippingSection {
+    
+    > main {
       width: 100%;
-      > input,
-      > select {
-        width: 10rem;
-      }
-    }
+      padding: 0;
+      > form {
+        padding: 30px;
+        box-shadow: none;
+        > div {
+          width: 100%;
+          > input,
+          > select {
+            width: 10rem;
+            font-size: 1rem;
+          }
+        }
 
-    > button {
-      width: 50%;
+        > button {
+          width: 150px;
+          height: 40px;
+        }
+      }
     }
   }
 }
+@media (min-width:700px) and (max-width:1300px){
+  .shippingSection {
+    height: 100vh;
+    // border: 1px solid blue;
+    > div {
+      height: 20%;
+    }
+    > main {
+      width: 70%;
+      height: 60%;
+      > form {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }

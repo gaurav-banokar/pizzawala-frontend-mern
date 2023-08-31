@@ -1,8 +1,5 @@
 import axios from "axios";
-
 import { server } from "../store";
-
-
 
 export const addToCart = (id,quantity) => async (dispatch,getState) => {
 

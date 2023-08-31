@@ -5,9 +5,12 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {ImImage} from "react-icons/im"
+import photo from "../../assets/profileImage.png";
+import Heading from "../layout/heading/Heading";
 
 import "./myProfile.scss";
-import photo from "../../assets/profile-pic.webp";
+
 
 const MyProfile = ({ admin }) => {
   const dispatch = useDispatch();
@@ -25,6 +28,10 @@ const MyProfile = ({ admin }) => {
     delay: 0.3,
   };
 
+  const selectPic = (e) => {
+    const fileInput = document.getElementById("fileInput");
+    fileInput.click()
+  }
   const logoutHandler = () => {
     dispatch(logout());
     toast.success("Logout Successfully");
@@ -32,9 +39,16 @@ const MyProfile = ({ admin }) => {
   };
 
   return (
-    <section className="myProfile allSection">
-      <main className="allSectionContainer">
+    <section className="myProfile ">
+      <div>
+      <Heading heading={"Profile"} />
+        
+      </div>
+      <main className="myProfileMain">
+        <div>
         <motion.img {...options} src={photo} alt="user profile"></motion.img>
+        <button onClick={selectPic}><ImImage size={"20px"}/><input type="file" id="fileInput"/></button>
+        </div>
 
         <Link to={"/myorders"}>Orders</Link>
         {admin && <Link to={"/admin/item/new"}>Create Item</Link>}

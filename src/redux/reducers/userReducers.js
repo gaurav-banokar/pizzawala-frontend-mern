@@ -4,6 +4,7 @@ import { createReducer } from "@reduxjs/toolkit";
 const intialState = {
     isAuthenticated :false,
     user:{},
+    
 }
 
 export const authReducer = createReducer(intialState ,

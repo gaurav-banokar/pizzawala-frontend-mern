@@ -1,10 +1,15 @@
+@import "../../styles/colors.scss";
+.cart {
+  padding: 30px 0;
+}
 .cartDiv {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem 0;
-
+  height: 90vh;
   h1 {
     font-size: 2rem;
     font-weight: 300;
@@ -16,9 +21,12 @@
     max-width: 100%;
     margin: auto;
     padding: 2rem;
-
+    // border: 1px solid green;
     > article {
       padding: 2rem;
+      color: $reddish;
+      font-weight: 500;
+
       > div {
         display: flex;
         justify-content: space-between;
@@ -26,8 +34,8 @@
       }
 
       > a {
-        background-color: rgb(155, 155, 248);
-        color: white;
+        background-color: $reddish;
+        color: #fff;
         padding: 0.5rem 1rem;
         border-radius: 5px;
         text-align: center;
@@ -39,18 +47,20 @@
 }
 
 .cartItem {
-  background-color: rgb(246, 246, 246);
+  background-color: rgba(250, 35, 46, 0.885);
   margin: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
   border-radius: 5px;
-  width: 25vmax;
-  > div {
+  width: 94%;
+
+  > div:first-of-type {
     display: flex;
     align-items: center;
-
+    color: #fff;
+    width: 70%;
     > h4 {
       font-weight: 200;
       letter-spacing: 2px;
@@ -58,6 +68,22 @@
 
     > img {
       height: 50px;
+    }
+  }
+  > div:last-of-type {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    gap: 3px;
+    > button {
+      background-color: $reddish;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      font-size: 25px;
     }
 
     > input {
@@ -68,8 +94,9 @@
       border: none;
       margin: 0.25rem;
       outline: none;
-      border-radius: 5px;
-      color: blue($color: #000000);
+      border-radius: 100%;
+      color: $reddish;
+      font-weight: 500;
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
@@ -78,10 +105,6 @@
       }
     }
   }
-}
-.btn {
-  margin: 0 0.5rem;
-  font-size: 1.4rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -102,7 +125,39 @@
   }
 
   .cartItem {
-    margin: 1.3rem 0;
-    width: 100%;
+    width: 85%;
+    margin: 20px auto;
+    > div:first-of-type {
+      // border: 1px solid blueviolet;
+      width: 180px;
+    }
+  }
+}
+@media (min-width: 600px) and (max-width: 1300px) {
+  .cart {
+    > div {
+      > main {
+        width: 80%;
+
+        > article {
+          font-size: 3vw;
+        }
+      }
+    }
+  }
+  .cartItem {
+    height: 10vh;
+    padding: 0 1rem;
+    > div {
+      height: 100%;
+      gap:8px;
+      > h4 {
+        font-size: 3vw;
+      }
+      > img {
+        width: 70px;
+       
+      }
+    }
   }
 }

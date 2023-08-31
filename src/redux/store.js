@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { createItemReducer, getAllItemsReducers } from "../redux/reducers/itemReducers"
+import { createItemReducer, getAllItemsByCategoryReducers, getAllItemsBySearchReducer, itemsByCategoryReducers } from "../redux/reducers/itemReducers"
 import { cartReducers } from "../redux/reducers/cartReducers"
 import { orderReducers, ordersReducers } from "./reducers/orderReducers"
 import { authReducer } from "./reducers/userReducers";
@@ -15,11 +15,13 @@ const store = configureStore({
         order: orderReducers,
         orders: ordersReducers,
         auth: authReducer,
-        items: getAllItemsReducers,
+        itemsByCategory: getAllItemsByCategoryReducers,
+        items: itemsByCategoryReducers,
+        itemsBySearch: getAllItemsBySearchReducer,
         contact: contactReducer,
 
     }
 
 })
 export default store;
-export const server =  `http://localhost:5000/api/v1`;
+export const server = `${process.env.REACT_APP_BACKEND_URL}/api/v1`;

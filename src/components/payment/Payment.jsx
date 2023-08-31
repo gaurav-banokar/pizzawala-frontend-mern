@@ -6,6 +6,7 @@ import { server } from "../../redux/store";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "./CheckOutForm";
+import Heading from "../layout/heading/Heading";
 
 import "../../styles/app.scss";
 import "./payment.scss";
@@ -34,7 +35,7 @@ const Payment = () => {
 
       setClientSecret(data.clientSecret);
     } catch (error) {
-      console.log(error);
+      new Error("Stripe Public Key or Client Secret Not Found")
     }
   };
 
@@ -45,7 +46,8 @@ const Payment = () => {
   return (
     <section className="payment ">
       <div className="paymentSub ">
-        <h2>Checkout Card</h2>
+        <Heading heading={"Checkout Card"}/>
+     
         {keyData && clientSecret && (
           <Elements stripe={keyData} options={{ clientSecret }}>
             <CheckOutForm clientSecret={clientSecret} />

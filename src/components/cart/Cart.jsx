@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // scss importation
 import "./cart.scss";
+import Heading from "../layout/heading/Heading";
 
 const CartItem = ({
   value,
@@ -98,9 +99,9 @@ const Cart = () => {
   
 
   return (
-    <section className="cart allSection">
-      <div className="cartDiv allSectionContainer">
-        <h1>Cart</h1>
+    <section className="cart">
+      <div className="cartDiv">
+        <div><Heading heading={"Wishlist"} /></div>
         <main>
           {cartItems &&
             cartItems.map((i) => {

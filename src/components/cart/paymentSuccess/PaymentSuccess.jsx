@@ -1,25 +1,19 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-// import toast from "react-hot-toast";
+import { GiCheckMark} from "react-icons/gi"
 
 import "./paymentSuccess.scss";
-// import { useEffect } from 'react';
-
 
 const PaymentSuccess = () => {
-
- 
-  
-
   return (
-   <section className="paymentSuccess">
-     <main>
-        <h1>Order Confirmed</h1>
+    <section className="paymentSuccess">
+      <main>
+        <h1>Order Confirmed <span><GiCheckMark color="red" /></span></h1>
         <p>Order Placed Successfully, You can check order status below</p>
         <Link to="/myorders">Check Status</Link>
       </main>
-   </section>
-  )
-}
+    </section>
+  );
+};
 
-export default PaymentSuccess
+export default PaymentSuccess;
