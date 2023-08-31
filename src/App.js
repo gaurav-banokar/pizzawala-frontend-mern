@@ -39,8 +39,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const { error, user } = useSelector((state) => state.auth); //isAuthenticated add
-  const isAuthenticated = true;
+  const { isAuthenticated, error, user } = useSelector((state) => state.auth); 
+  
 
   const { items } = useSelector((state) => state.items)
 
@@ -53,12 +53,10 @@ function App() {
   }, [dispatch, error])
 
   useEffect(() => {
-    // dispatch(loadUser())
+    dispatch(loadUser())
     dispatch(getAllItemsByCategoryAction())
 
   }, [dispatch])
-
-
 
 
   return (
@@ -84,7 +82,7 @@ function App() {
             <Route path="/paymentsuccess" element={<ProtectedRoute isAuthenticated={isAuthenticated}><PaymentSuccess /></ProtectedRoute>} />
             <Route path="/myorders" element={<ProtectedRoute isAuthenticated={isAuthenticated}><MyOrders /></ProtectedRoute>} />
             <Route path="/myorders/order/:id" element={<ProtectedRoute isAuthenticated={isAuthenticated}><OrderDetails /></ProtectedRoute>} />
-            <Route path="/order/notFound" element={<OrdersNotFound /> }/>
+            <Route path="/order/notFound" element={<OrdersNotFound />} />
             <Route path="/emptycart" element={<EmptyCart />} />
 
             <Route path="/admin/item/new" element={<ProtectedRoute isAuthenticated={isAuthenticated} ><NewItem admin={user && user.role === "admin"} /></ProtectedRoute>} />
