@@ -6,23 +6,17 @@ import { FaUser } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { GrClose } from "react-icons/gr";
+import { motion } from "framer-motion";
 
-import logo from "../../../assets/pizzawala-logo.png";
 import "../../../styles/colors.scss";
 
 const Header = ({ isAuthenticated }) => {
-
-
   const mobNav = useRef(null);
   const closeIcon = useRef(null);
   const menuHandler = (e) => {
-    console.log("menu clicked");
-    console.log(mobNav);
-    console.log(closeIcon);
-
     if (mobNav !== null && closeIcon !== null) {
       mobNav.current.style.display = "flex";
-      closeIcon.current.firstElementChild.style.display = "block"
+      closeIcon.current.firstElementChild.style.display = "block";
     }
   };
   const closeMenuHandler = (e) => {
@@ -38,8 +32,11 @@ const Header = ({ isAuthenticated }) => {
         <div>
           <HiMenuAlt1 size={"30px"} color="red" onClick={menuHandler} />
           <span ref={closeIcon} className="closeSpan">
-            
-            <GrClose size={"25px"} className="closeMenuIcon"  onClick={closeMenuHandler} />
+            <GrClose
+              size={"25px"}
+              className="closeMenuIcon"
+              onClick={closeMenuHandler}
+            />
           </span>
         </div>
         <Link to="/" className="headerElement">
@@ -75,7 +72,13 @@ const Header = ({ isAuthenticated }) => {
           </Link>
         </div>
       </div>
-      <div className="mobileNavbar" ref={mobNav}>
+      <motion.div
+        className="mobileNavbar"
+        initial={{ x: "-100%", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        ref={mobNav}
+      >
         <div>
           <Link to="/" onClick={closeMenuHandler}>
             Home
@@ -115,7 +118,7 @@ const Header = ({ isAuthenticated }) => {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

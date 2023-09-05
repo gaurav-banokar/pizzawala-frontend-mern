@@ -39,10 +39,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const { isAuthenticated, error, user } = useSelector((state) => state.auth); 
-  
-
-  const { items } = useSelector((state) => state.items)
+  const { error, user } = useSelector((state) => state.auth);
+  const isAuthenticated = true;
 
   useEffect(() => {
     if (error) {
@@ -53,7 +51,7 @@ function App() {
   }, [dispatch, error])
 
   useEffect(() => {
-    dispatch(loadUser())
+    // dispatch(loadUser())
     dispatch(getAllItemsByCategoryAction())
 
   }, [dispatch])
@@ -90,6 +88,7 @@ function App() {
             <Route path="/loader" element={<Loader />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+ 
           <Footer />
         </Router>
         )

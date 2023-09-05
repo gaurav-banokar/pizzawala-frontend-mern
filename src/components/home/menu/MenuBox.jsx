@@ -39,7 +39,7 @@ const MenuBox = ({ categoryName, arr }) => {
                 id={item._id}
                 handler={addToCartHandler}
                 quantity={1}
-                delay={0.1}
+                delay={0.1 * index}
               />
             ) : (
               ""

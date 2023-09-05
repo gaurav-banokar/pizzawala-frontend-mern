@@ -11,6 +11,7 @@ import {
 import { BiSearchAlt } from "react-icons/bi";
 
 import "./menuSection.scss";
+import Loader from "../loader/Loader";
 
 const MenuSection = () => {
   const dispatch = useDispatch();
@@ -38,28 +39,35 @@ const MenuSection = () => {
 
   const displayedItems =
     finalValue && finalValue ? itemsBySearch : itemsByCategory;
+   
 
   return (
-    <section className="menuSection">
-      <motion.div
-        initial={{ x: "100%", opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
-      >
-        <input type="text" value={value} onChange={handleInputChange} />
-        <motion.button
-          type="submit"
-          onClick={searchHandler}
-          initial={{ x: "100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <BiSearchAlt color="red" className="searchIcon" />
-        </motion.button>
-      </motion.div>
-      <CategoriesNav />
-      <MenuItemsGroup items={displayedItems} />
-    </section>
+    <>
+      {displayedItems.length !== 0 ? (
+        <section className="menuSection">
+          <motion.div
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <input type="text" value={value} onChange={handleInputChange} />
+            <motion.button
+              type="submit"
+              onClick={searchHandler}
+              initial={{ x: "100%", opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <BiSearchAlt color="red" className="searchIcon" />
+            </motion.button>
+          </motion.div>
+          <CategoriesNav />
+          <MenuItemsGroup items={displayedItems} />
+        </section>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 };
 

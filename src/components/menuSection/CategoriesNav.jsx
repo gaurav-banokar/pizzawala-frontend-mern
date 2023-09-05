@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { getAllItemsByCategoryAction } from "../../redux/actions/itemAction";
 import { motion } from "framer-motion";
 
-
 const CategoriesNav = () => {
   const dispatch = useDispatch();
 
@@ -35,10 +34,11 @@ const CategoriesNav = () => {
   };
 
   return (
-    <motion.div className="categoriesNav"
-    initial={{ y: "-100%", opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    transition={{ delay: 0.6 }}
+    <motion.div
+      className="categoriesNav"
+      initial={{ y: "-100%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.6 }}
     >
       <ul>
         <li>
@@ -73,22 +73,12 @@ const CategoriesNav = () => {
       </ul>
 
       <div>
-        <select  onClick={categoryClickHandler}>
-          <option value="vegPizza" >
-            Veg Pizza
-          </option>
-          <option value="nonVegPizza" >
-            Non Veg Pizza
-          </option>
-          <option value="pizzaMania" >
-            Pizza Mania
-          </option>
-          <option value="sideAndBeverages" >
-            Side & Beverages{" "}
-          </option>
-          <option value="pasta" >
-            Pasta
-          </option>
+        <select onClick={categoryClickHandler}>
+          <option value="vegPizza">Veg Pizza</option>
+          <option value="nonVegPizza">Non Veg Pizza</option>
+          <option value="pizzaMania">Pizza Mania</option>
+          <option value="sideAndBeverages">Side & Beverages </option>
+          <option value="pasta">Pasta</option>
         </select>
       </div>
     </motion.div>

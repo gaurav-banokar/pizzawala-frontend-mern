@@ -111,7 +111,7 @@ const Cart = () => {
                   title={i.name}
                   key={i.id}
                   id={i.id}
-                  img={newpizza2}
+                  img={i.image}
                   increment={increment}
                   decrement={decrement}
                   calculatePrice={calculatePrice}

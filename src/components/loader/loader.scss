@@ -8,8 +8,8 @@
 }
 
 .loaderElement {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -25,5 +25,11 @@
 @keyframes animateloader {
   to {
     transform: scale(1.2);
+  }
+}
+
+@media (max-width:600px ) {
+  .loaderSection {
+    height: 90vh;
   }
 }

@@ -29,7 +29,7 @@ const MenuCard = ({ itemNum, pizzaSrc, price, title, category, id, handler,quant
 
       <h5>₹{price}</h5>
 
-      <p>{title} <span >{category === ("veg" || "nonVeg") ? category : ""}</span></p>
+      <p>{title} </p>
      
       <button  onClick={()=> handler(id,quantity)}> Buy Now</button>
     
