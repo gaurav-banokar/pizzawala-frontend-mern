@@ -51,7 +51,7 @@ function App() {
   }, [dispatch, error])
 
   useEffect(() => {
-    // dispatch(loadUser())
+    dispatch(loadUser())
     dispatch(getAllItemsByCategoryAction())
 
   }, [dispatch])
@@ -88,7 +88,7 @@ function App() {
             <Route path="/loader" element={<Loader />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
- 
+
           <Footer />
         </Router>
         )

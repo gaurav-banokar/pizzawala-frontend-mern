@@ -24,5 +24,4 @@ const store = configureStore({
 
 })
 export default store;
-// export const server = `${process.env.REACT_APP_BACKEND_URL}/api/v1`;
-export const server = `http://localhost:5000/api/v1`;
+export const server = `${process.env.REACT_APP_BACKEND_URL}/api/v1`;
