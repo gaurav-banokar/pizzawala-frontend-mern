@@ -1,79 +1,79 @@
 @import "../../styles/colors.scss";
 
 .menuItemCard {
-    width: 250px;
-    height: 370px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0 0 14px rgba(156, 155, 155, 0.59);
-    margin: 0.5rem 1rem;
-    transition: all 0.4S;
-    gap:5px;
+  width: 250px;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 0 14px rgba(156, 155, 155, 0.59);
+  margin: 0.5rem 1rem;
+  transition: all 0.4s;
+  gap: 5px;
+  &:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+  a {
+    margin: 20px 30px;
+
+    > img {
+      width: 100%;
+      height: 130px;
+    }
+  }
+  > h6 {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  > p {
+    margin: 0.3rem 2px;
+    padding: 0 5px;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  > button {
+    width: 60%;
+    height: 30px;
+    background-color: $reddish;
+    color: white;
+    border-radius: 5px;
+    margin-top: 5px;
     &:hover {
-        transform: translateY(-10px);
-        cursor: pointer;
+      opacity: 0.8;
     }
-    a {
-        margin: 20px 30px;
-        
-        > img {
-            width: 100%;
-            height:130px;
-            
-        }
-    }
-     > h6 {
-        color: red;
-        font-size: 1.2rem;
-        text-align: center;
-     }
-    >p {
-        margin: 0.3rem 2px;
-        padding: 0 5px;
-        font-size: 1.3rem;
-        text-align: center;
-    }
-    > button {
-        width: 60%;
-        height: 30px;
-        background-color:$reddish ;
-        color: white;
-        border-radius: 5px;
-        margin-top: 5px;
-        &:hover {
-            opacity: 0.8;
-        }
-        }
+  }
 }
 
-@media screen and (max-width:600px){
-    .menuItemCard {
-        height: max-content;
-        width: 45vmin;
-      > a > img {
-        width: 80px;
-        height: 80px;
-      }
-      > p {
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-      }
-    
-    >h6 {
-        font-size: 1rem;
-    }  
+@media screen and (max-width: 600px) {
+  .menuItemCard {
+    height: max-content;
+    width: 46vmin;
+    > a > img {
+      width: 80px;
+      height: 80px;
+    }
+    > p {
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    > h6 {
+      font-size: 1rem;
+    }
     > button {
-        width: 100px;
-        margin-bottom: 25px;
+      width: 100px;
+      margin-bottom: 25px;
+      border-radius: 50px;
     }
 
     &:hover {
-        display: none;
+      display: none;
     }
-}
+  }
 }

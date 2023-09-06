@@ -39,8 +39,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const { error, user } = useSelector((state) => state.auth);
-  const isAuthenticated = true;
+  const { isAuthenticated, error, user } = useSelector((state) => state.auth);
+
 
   useEffect(() => {
     if (error) {

@@ -23,62 +23,60 @@ const CheckOutForm = ({ clientSecret }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    
+
     payBtn.current.disabled = true;
 
     if (!stripe && !elements) {
       return;
     }
     try {
-      
-          const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-              card: elements.getElement(CardElement),
-            },
-          });
-      
-          switch (paymentIntent.status) {
-            case "succeeded":
-              toast.success("Payment Successful");
-              navigate("/paymentsuccess");
-              dispatch({ type: "emptyState" });
-              break;
-      
-            case "canceled":
-              toast.error("Payment Failed");
-              payBtn.current.disabled = false;
-              break;
-      
-            default:
-              toast.loading("Pending...");
-              break;
-          }
-          const payment_id = paymentIntent.id;
-      
-          const orderOptions = {
-            shippingInfo,
-            orderItems: cartItems,
-            paymentMethod: "Online",
-            subTotal,
-            taxPrice: tax,
-            shippingCharges,
-            totalAmount: total,
-            user,
-            payment_id,
-          };
-      
-          dispatch(createOrderOnline(orderOptions));
-      
+      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
+
+      switch (paymentIntent.status) {
+        case "succeeded":
+          toast.success("Payment Successful");
+          navigate("/paymentsuccess");
+          dispatch({ type: "emptyState" });
+          break;
+
+        case "canceled":
+          toast.error("Payment Failed");
+          payBtn.current.disabled = false;
+          break;
+
+        default:
+          toast.loading("Pending...");
+          break;
+      }
+      const payment_id = paymentIntent.id;
+
+      const orderOptions = {
+        shippingInfo,
+        orderItems: cartItems,
+        paymentMethod: "Online",
+        subTotal,
+        taxPrice: tax,
+        shippingCharges,
+        totalAmount: total,
+        user,
+        payment_id,
+      };
+
+      dispatch(createOrderOnline(orderOptions));
     } catch (error) {
-      toast.error("Payment Failed")
-      return new Error(error.message)
+      toast.error("Payment Failed");
+      return new Error(error.message);
     }
   };
 
   return (
     <section className="checkOutForm">
       <form onSubmit={submitHandler}>
-        <CardElement className="cardElement"/>
+        <CardElement className="cardElement" />
         <button type="submit" ref={payBtn}>
           Pay
         </button>
