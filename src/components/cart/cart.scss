@@ -1,47 +1,42 @@
 @import "../../styles/colors.scss";
 .cart {
   padding: 30px 0;
-}
-.cartDiv {
   width: 100%;
   min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 0;
-  height: 90vh;
-  h1 {
-    font-size: 2rem;
-    font-weight: 300;
-  }
+  > div:last-of-type {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 20px 0;
 
-  > main {
-    height: 100%;
-    background-color: white;
-    max-width: 100%;
-    margin: auto;
-    padding: 2rem;
-    // border: 1px solid green;
-    > article {
+    > main {
+      background-color: white;
+      max-width: 100%;
+      margin: auto;
       padding: 2rem;
-      color: $reddish;
-      font-weight: 500;
+      // border: 1px solid green;
+      > article {
+        padding: 2rem;
+        color: $reddish;
+        font-weight: 500;
 
-      > div {
-        display: flex;
-        justify-content: space-between;
-        margin: 1rem 0;
-      }
+        > div {
+          display: flex;
+          justify-content: space-between;
+          margin: 1rem 0;
+        }
 
-      > a {
-        background-color: $reddish;
-        color: #fff;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        text-align: center;
-        margin-top: 2rem;
-        float: right;
+        > a {
+          background-color: $reddish;
+          color: #fff;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          text-align: center;
+          margin-top: 2rem;
+          float: right;
+        }
       }
     }
   }
@@ -63,6 +58,7 @@
     color: #fff;
     width: 70%;
     > h4 {
+      width: 120px;
       font-weight: 200;
       letter-spacing: 2px;
     }
@@ -141,19 +137,25 @@
         width: 80%;
 
         > article {
-          font-size: 3vw;
+          width: 350px;
+          font-size: 18px;
+          margin: auto;
         }
       }
     }
   }
   .cartItem {
+    width: 350px;
     height: 10vh;
     padding: 0 1rem;
+    margin-left: auto;
+    margin-right: auto;
     > div {
       height: 100%;
       gap: 8px;
       > h4 {
-        font-size: 3vw;
+        width: 70%;
+        font-size: 16px;
       }
       > img {
         width: 70px;

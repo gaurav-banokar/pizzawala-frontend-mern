@@ -55,4 +55,29 @@ export const authReducer = createReducer(intialState ,
     })
 
 
-
+export const getProfilePhotoReducer = createReducer({ profilePhoto:""}, {
+    getProfilePhotoRequest:(state) => {
+        state.loading = true;
+    },
+    getProfilePhotoSuccess:(state,action) => {
+        state.loading = false;
+        state.profilePhoto = action.payload
+    },
+    getProfilePhotoFail:(state,action) => {
+        state.loading = false;
+        state.error = action.payload
+    }
+})
+export const uploadProfilePhotoReducer = createReducer({}, {
+    uploadProfilePhotoRequest:(state) => {
+        state.loading = true;
+    },
+    uploadProfilePhotoSuccess:(state,action) => {
+        state.loading = false;
+        state.message = action.payload
+    },
+    uploadProfilePhotoFail:(state,action) => {
+        state.loading = false;
+        state.error = action.payload
+    }
+})

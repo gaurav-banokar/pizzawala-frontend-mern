@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./home.scss";
 import { motion } from "framer-motion";
 import Menu from "./menu/Menu";
@@ -7,12 +7,27 @@ import pizzaBanner from "../../assets/pizzawebp.webp";
 import { useSelector } from "react-redux";
 import Loader from "../loader/Loader";
 
+import { useDispatch } from "react-redux";
+import { getAllItemsAction } from "../../redux/actions/itemAction";
+
 const Home = () => {
-  const { items } = useSelector((state) => state.items);
+   const { items } = useSelector((state) => state.items);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllItemsAction("vegPizza"));
+    dispatch(getAllItemsAction("nonVegPizza"));
+    
+  }, [dispatch]);
+
+  const isItem =  Object.values(items)[0].length ||  Object.values(items)[1].length !== 0
 
   return (
     <>
-      {Object.values(items).length !== 0 ? (
+      {
+     
+     isItem ? (
         <div className="home">
           <motion.section
             initial={{ x: "-100%", opacity: 0 }}

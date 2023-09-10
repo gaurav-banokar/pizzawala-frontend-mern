@@ -25,13 +25,13 @@ import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./redux/actions/userAction";
 import { ProtectedRoute } from "protected-route-react";
+import { getAllItemsByCategoryAction } from "./redux/actions/itemAction";
+import OrdersNotFound from "./components/myOrders/OrdersNotFound";
 
 
 
 //styles
 import "./styles/app.scss";
-import { getAllItemsByCategoryAction } from "./redux/actions/itemAction";
-import OrdersNotFound from "./components/myOrders/OrdersNotFound";
 
 
 
@@ -39,8 +39,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const { isAuthenticated, error, user } = useSelector((state) => state.auth);
-
+  const {  error, user } = useSelector((state) => state.auth);
+  const isAuthenticated = true;
 
   useEffect(() => {
     if (error) {

@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 const CategoriesNav = () => {
   const dispatch = useDispatch();
-
+  
   const categoryClickHandler = (e) => {
-    console.log(e.target.value);
+   
     switch (e.target.value) {
       case "vegPizza":
         dispatch(getAllItemsByCategoryAction("vegPizza"));
@@ -73,12 +73,12 @@ const CategoriesNav = () => {
       </ul>
 
       <div>
-        <select onClick={categoryClickHandler}>
-          <option value="vegPizza">Veg Pizza</option>
-          <option value="nonVegPizza">Non Veg Pizza</option>
-          <option value="pizzaMania">Pizza Mania</option>
-          <option value="sideAndBeverages">Side & Beverages </option>
-          <option value="pasta">Pasta</option>
+        <select onChange={categoryClickHandler}>
+          <option value="vegPizza"> Veg Pizza</option>
+          <option value="nonVegPizza" >Non Veg Pizza</option>
+          <option value="pizzaMania" >Pizza Mania</option>
+          <option value="sideAndBeverages" >Side & Beverages </option>
+          <option value="pasta" >Pasta</option>
         </select>
       </div>
     </motion.div>

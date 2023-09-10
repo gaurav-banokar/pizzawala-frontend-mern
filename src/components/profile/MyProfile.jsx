@@ -1,6 +1,6 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../redux/actions/userAction";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProfilePhoto, logout, uploadProfilePhoto } from "../../redux/actions/userAction";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -32,11 +32,51 @@ const MyProfile = ({ admin }) => {
     const fileInput = document.getElementById("fileInput");
     fileInput.click()
   }
+
+  const [imagePrev,setImagePrev] = useState("");
+  const [image,setImage] = useState("");
+
+  const { user } = useSelector(state => state.auth)
+  const  { profilePhoto } = useSelector(state => state.profilePhoto)
+
+  const imageHandler = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    setImagePrev(e.target.value);
+    const Reader = new FileReader();
+    Reader.readAsDataURL(file);
+
+    Reader.onload = () => {
+      if(Reader.readyState === 2) {
+        setImage(file);
+        const form = new FormData();
+
+        form.set("user",user._id);
+        form.set("file",image)
+
+        dispatch(uploadProfilePhoto(form))
+      }
+    }
+
+  }
+
   const logoutHandler = () => {
     dispatch(logout());
     toast.success("Logout Successfully");
     navigate("/login");
   };
+
+
+  useEffect(() => {
+    dispatch(getProfilePhoto(user._id))
+  }, [dispatch])
+
+  useEffect(() => {
+    if(profilePhoto) {
+      toast.success("Profile Photo Updated")
+    }
+  },[profilePhoto])
+  
 
   return (
     <section className="myProfile ">
@@ -46,8 +86,8 @@ const MyProfile = ({ admin }) => {
       </div>
       <main className="myProfileMain">
         <div>
-        <motion.img {...options} src={photo} alt="user profile"></motion.img>
-        <button onClick={selectPic}><ImImage size={"20px"}/><input type="file" id="fileInput"/></button>
+        <motion.img {...options} src={profilePhoto ? profilePhoto : photo} alt="user profile"></motion.img>
+        <button onClick={selectPic}><ImImage size={"20px"}/><input type="file" id="fileInput" value={imagePrev} onChange={imageHandler}/></button>
         </div>
 
         <Link to={"/myorders"}>Orders</Link>

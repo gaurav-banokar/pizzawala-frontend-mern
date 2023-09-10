@@ -21,16 +21,19 @@ const NewItem = () => {
   const imageHandler = (e) => {
     const file = e.target.files[0];
     setImagePrev(e.target.value);
-    console.log(file);
 
     const Reader = new FileReader();
-    Reader.readAsDataURL(file);
-
-    Reader.onload = () => {
-      if (Reader.readyState === 2) {
-        setItemImage(file);
-      }
-    };
+    if(file) {
+      Reader.readAsDataURL(file);
+  
+      Reader.onload = () => {
+        if (Reader.readyState === 2) {
+          setItemImage(file);
+          console.log(file)
+        }
+      };
+      
+    }
   };
 
   const formSubmitHandler = (e) => {

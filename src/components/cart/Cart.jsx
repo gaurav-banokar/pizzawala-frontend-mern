@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import newpizza2 from "../../assets/newpizza2.png";
 import { useDispatch, useSelector } from "react-redux";
 
 // scss importation
@@ -100,8 +99,8 @@ const Cart = () => {
 
   return (
     <section className="cart">
-      <div className="cartDiv">
         <div><Heading heading={"Wishlist"} /></div>
+      <div className="cartDiv">
         <main>
           {cartItems &&
             cartItems.map((i) => {

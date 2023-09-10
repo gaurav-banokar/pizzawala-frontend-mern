@@ -1,22 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useDispatch } from "react-redux";
-import { getAllItemsAction } from "../../../redux/actions/itemAction";
 import MenuBox from "./MenuBox";
 import { useSelector } from "react-redux";
 import "./menu.scss";
 
 const Menu = () => {
-  const dispatch = useDispatch();
-
   const { items } = useSelector((state) => state.items);
   const itemsArray = Object.entries(items);
-
-  useEffect(() => {
-    dispatch(getAllItemsAction("vegPizza"));
-    dispatch(getAllItemsAction("nonVegPizza"));
-    
-  }, [dispatch]);
 
   return (
     <section id="menu">

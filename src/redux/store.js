@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { createItemReducer, getAllItemsByCategoryReducers, getAllItemsBySearchReducer, itemsByCategoryReducers } from "../redux/reducers/itemReducers"
 import { cartReducers } from "../redux/reducers/cartReducers"
 import { orderReducers, ordersReducers } from "./reducers/orderReducers"
-import { authReducer } from "./reducers/userReducers";
+import { authReducer, getProfilePhotoReducer, uploadProfilePhotoReducer } from "./reducers/userReducers";
 import { contactReducer } from "./reducers/contactReducers";
 
 
@@ -15,11 +15,13 @@ const store = configureStore({
         order: orderReducers,
         orders: ordersReducers,
         auth: authReducer,
+        profilePhoto:getProfilePhotoReducer,
+        upload:uploadProfilePhotoReducer,
         itemsByCategory: getAllItemsByCategoryReducers,
         items: itemsByCategoryReducers,
         itemsBySearch: getAllItemsBySearchReducer,
         contact: contactReducer,
-
+        
     }
 
 })
