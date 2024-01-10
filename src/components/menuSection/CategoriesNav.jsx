@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const CategoriesNav = () => {
   const dispatch = useDispatch();
-  
+
   const categoryClickHandler = (e) => {
    
     switch (e.target.value) {
