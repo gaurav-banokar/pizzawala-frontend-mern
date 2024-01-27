@@ -42,7 +42,7 @@ const MenuSection = () => {
   };
 
   const displayedItems =
-    finalValue && finalValue ? itemsBySearch.length !== 0 && itemsBySearch : itemsBySearch.length !== 0 ? itemsByCategory : [];
+    finalValue && finalValue ? itemsBySearch :  itemsByCategory;
 
   return (
     <>
