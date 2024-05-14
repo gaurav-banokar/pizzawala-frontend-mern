@@ -39,7 +39,13 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const { isAuthenticated, error, user } = useSelector((state) => state.auth);
+  const { error, user } = useSelector((state) => state.auth);
+  const isAuthenticated = true;
+
+
+  const { items } = useSelector((state) => state.items);
+  const isItem = Object.values(items)[0].length !== 0 || Object.values(items)[1].length !== 0
+
 
   useEffect(() => {
     if (error) {
@@ -50,7 +56,7 @@ function App() {
   }, [dispatch, error])
 
   useEffect(() => {
-    dispatch(loadUser())
+    // dispatch(loadUser())
     dispatch(getAllItemsByCategoryAction())
 
   }, [dispatch])
@@ -60,7 +66,7 @@ function App() {
     <div className="App">
 
       {
-        (<Router>
+        (!isItem ? <Router>
           <Header isAuthenticated={isAuthenticated} />
 
           <Routes>
@@ -89,7 +95,7 @@ function App() {
           </Routes>
 
           <Footer />
-        </Router>
+        </Router> : <Loader />
         )
 
       }

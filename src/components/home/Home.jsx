@@ -1,33 +1,25 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./home.scss";
 import { motion } from "framer-motion";
 import Menu from "./menu/Menu";
 import Heading from "../layout/heading/Heading";
 import pizzaBanner from "../../assets/pizzawebp.webp";
 import { useSelector } from "react-redux";
-import Loader from "../loader/Loader";
-
 import { useDispatch } from "react-redux";
 import { getAllItemsAction } from "../../redux/actions/itemAction";
 
 const Home = () => {
-   const { items } = useSelector((state) => state.items);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllItemsAction("vegPizza"));
     dispatch(getAllItemsAction("nonVegPizza"));
-    
   }, [dispatch]);
-
-  const isItem =  Object.values(items)[0].length ||  Object.values(items)[1].length !== 0
 
   return (
     <>
       {
-     
-     isItem ? (
         <div className="home">
           <motion.section
             initial={{ x: "-100%", opacity: 0 }}
@@ -60,9 +52,7 @@ const Home = () => {
             <Menu />
           </div>
         </div>
-      ) : (
-        <Loader />
-      )}
+      }
     </>
   );
 };

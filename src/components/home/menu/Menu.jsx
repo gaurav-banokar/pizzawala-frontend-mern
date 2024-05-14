@@ -6,7 +6,11 @@ import "./menu.scss";
 
 const Menu = () => {
   const { items } = useSelector((state) => state.items);
+ 
+
   const itemsArray = Object.entries(items);
+  
+
 
   return (
     <section id="menu">

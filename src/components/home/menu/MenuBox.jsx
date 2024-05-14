@@ -32,14 +32,14 @@ const MenuBox = ({ categoryName, arr }) => {
               <MenuCard
                 itemNum={item.itemNumber}
                 key={item._id}
-                pizzaSrc={item.itemImage.url}
+                pizzaSrc={item.itemImage}
                 price={item.itemPrice}
                 title={item.itemName}
                 category={item.itemCategory}
                 id={item._id}
                 handler={addToCartHandler}
                 quantity={1}
-                delay={0.1 * index}
+                delay={0.3 * index}
               />
             ) : (
               ""

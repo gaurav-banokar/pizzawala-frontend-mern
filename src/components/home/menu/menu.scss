@@ -25,21 +25,23 @@
 
 .menuCard {
   background-color: white;
-  width: 350px;
-  height: 480px;
+  width: 250px; //350
+  height: 280px; //480
   margin: 1vmax;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.495);
   box-sizing: border-box;
   margin-bottom: 60px;
+
   > div {
     border-radius: 20px 20px 0 0;
     background-color: $reddish;
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     color: white;
-    height: 4rem;
+    height: 1.3rem;
+    justify-content: center;
   }
 
   > main {
@@ -49,36 +51,37 @@
     align-items: center;
 
     > img {
-      height: 12rem;
+      height: 5rem;
       width: 100%;
       object-fit: contain;
       background: transparent;
+      margin-bottom: 8px;
     }
 
     > h5 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
     > p {
       text-transform: uppercase;
       letter-spacing: 0.7px;
       padding: 1rem 0;
       text-align: center;
-      > span {
-        font-size: 0.8rem;
-        margin-left: 2px;
-        color: blue;
-        text-transform: lowercase;
-      }
+      font-size: 0.8rem;
+       
+      
     }
 
     > button {
       background-color: $reddish;
+      position: relative;
+      bottom: 0;
       text-align: center;
       color: white;
       border: none;
-      padding: 1rem 2rem;
-      width: 100%;
-      border-radius: 10px;
+      
+      width: 60%;
+      height: 40px;
+      border-radius: 50px;
       cursor: pointer;
 
       &:hover {
@@ -118,7 +121,7 @@
 
 @media (min-width: 601px) and (max-width: 1300px) {
   .menuCard {
-    width: 30vw;
+    width: 16rem;
     height: 30%;
   }
 }
