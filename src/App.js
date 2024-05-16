@@ -56,7 +56,7 @@ function App() {
   }, [dispatch, error])
 
   useEffect(() => {
-    // dispatch(loadUser())
+    dispatch(loadUser())
     dispatch(getAllItemsByCategoryAction())
 
   }, [dispatch])
