@@ -66,7 +66,7 @@ function App() {
     <div className="App">
 
       {
-        (isItem ? <Router>
+        (!isItem ? <Router>
           <Header isAuthenticated={isAuthenticated} />
 
           <Routes>
