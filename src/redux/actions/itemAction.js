@@ -94,6 +94,7 @@ export const getAllItemsByCategoryAction = (category) => async (dispatch) => {
 export const getAllItemsAction = (category) => async (dispatch) => {
 
     try {
+        console.log("category : ", category);
         dispatch({
             type: "itemsByCategoryRequest",
         })
@@ -105,7 +106,7 @@ export const getAllItemsAction = (category) => async (dispatch) => {
 
 
         const { data } = await axios.get(`${server}/getAllItemsByCategory?category=${category}`,config);
-
+        console.log(data);
         switch (category) {
             case "vegPizza":
                 dispatch({
