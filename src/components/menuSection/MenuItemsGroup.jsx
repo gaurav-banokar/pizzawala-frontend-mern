@@ -7,7 +7,6 @@ import Loader from "../loader/Loader";
 
 import { motion } from "framer-motion";
 import "./menuItemsGroup.scss";
-import { getAllItemsByCategoryAction } from "../../redux/actions/itemAction";
 
 const MenuItemsGroup = ({ items }) => {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CategoriesNav from "./CategoriesNav";
 import MenuItemsGroup from "./MenuItemsGroup";
 import { motion } from "framer-motion";
-import { getAllItemsBySearchAction } from "../../redux/actions/itemAction";
+import { getAllItemsBySearchAction,  getAllItemsByCategoryAction } from "../../redux/actions/itemAction";
 
 import { BiSearchAlt } from "react-icons/bi";
 
@@ -14,6 +14,11 @@ const MenuSection = () => {
 
   const [value, setValue] = useState("");
   const [finalValue, setFinalValue] = useState("");
+
+  
+  useEffect(() => {
+    dispatch(getAllItemsByCategoryAction("vegPizza"));
+  }, [dispatch]);
 
   const { itemsByCategory } = useSelector((state) => state.itemsByCategory);
   const { itemsBySearch } = useSelector((state) => state.itemsBySearch);
