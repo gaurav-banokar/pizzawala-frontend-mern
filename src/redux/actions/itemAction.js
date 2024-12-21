@@ -80,7 +80,7 @@ export const getAllItemsByCategoryAction = (category) => async (dispatch) => {
           
         dispatch({
             type: "getAllItemsByCategorySuccess",
-            payload: data.items,
+            payload: data.newCacheProducts,
         })
 
     } catch (error) {
@@ -111,31 +111,31 @@ export const getAllItemsAction = (category) => async (dispatch) => {
             case "vegPizza":
                 dispatch({
                     type: "vegPizzaItemsSuccess",
-                    payload: data.items,
+                    payload: data.newCacheProducts,
                 })
                 break;
             case "nonVegPizza":
                 dispatch({
                     type: "nonVegPizzaItemsSuccess",
-                    payload: data.items,
+                    payload: data.newCacheProducts,
                 })
                 break;
             case "pizzaMania":
                 dispatch({
                     type: "pizzaManiaItemsSuccess",
-                    payload: data.items,
+                    payload: data.newCacheProducts,
                 })
                 break;
             case "sideAndBeverages":
                 dispatch({
                     type: "sideAndBeveragesItemsSuccess",
-                    payload: data.items,
+                    payload: data.newCacheProducts,
                 })
                 break;
             case "pasta":
                 dispatch({
                     type: "pastaItemsSuccess",
-                    payload: data.items,
+                    payload: data.newCacheProducts,
                 })
                 break;
         
