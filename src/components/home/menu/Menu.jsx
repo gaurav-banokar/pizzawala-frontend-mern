@@ -18,13 +18,13 @@ const Menu = () => {
         {itemsArray &&
           itemsArray.map((item, index) => {
             return (
-              item[1].length !== 0 && (
+              item[1].length !== 0 ? (
                 <MenuBox
                   key={index}
                   categoryName={item[0]}
                   arr={item[1] ? item[1] : []}
                 />
-              )
+              ) : ""
             );
           })}
       </div>
