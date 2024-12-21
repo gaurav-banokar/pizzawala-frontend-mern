@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/actions/cartActions";
 import MenuItemCard from "./MenuItemCard";
 import toast from "react-hot-toast";
-import Loader from "../loader/Loader";
 
 import { motion } from "framer-motion";
 import "./menuItemsGroup.scss";
+import { getAllItemsByCategoryAction } from "../../redux/actions/itemAction";
 
 const MenuItemsGroup = ({ items }) => {
   const dispatch = useDispatch();
