@@ -1,6 +1,7 @@
 import React from 'react'
 import {motion} from "framer-motion";
-import pizza from "../../../assets/newpizza1.png";
+
+
 
 import "../menu/menu.scss"
 
@@ -25,11 +26,11 @@ const MenuCard = ({ itemNum, pizzaSrc, price, title, category, id, handler,quant
   >
     <div>Item {itemNum}</div>
     <main>
-      <img src={pizza} alt={itemNum} />
+      <img src={pizzaSrc} alt={itemNum} />
 
-      <h5>₹ 200</h5>
+      <h5>₹ {price}</h5>
 
-      <p>Veg Pizza </p>
+      <p>{title} </p>
      
       <button  onClick={()=> handler(id,quantity)}> Buy Now</button>
     
