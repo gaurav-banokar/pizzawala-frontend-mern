@@ -32,7 +32,7 @@ const MenuBox = ({ categoryName, arr }) => {
               <MenuCard
                 itemNum={item.itemNumber}
                 key={item._id}
-                pizzaSrc={item.itemImage}
+                pizzaSrc={item.itemImage.url}
                 price={item.itemPrice}
                 title={item.itemName}
                 category={item.itemCategory}

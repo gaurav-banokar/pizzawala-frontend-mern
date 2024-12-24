@@ -41,10 +41,10 @@ const MyProfile = ({ admin }) => {
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
-    console.log(file);
+    // console.log(file);
     setImagePrev(e.target.value);
     const Reader = new FileReader();
-    Reader.readAsDataURL(file);
+    if(file) Reader.readAsDataURL(file);
 
     Reader.onload = () => {
       if(Reader.readyState === 2) {
@@ -68,7 +68,7 @@ const MyProfile = ({ admin }) => {
 
 
   useEffect(() => {
-    dispatch(getProfilePhoto(user._id))
+    dispatch(getProfilePhoto(user && user._id))
   }, [dispatch])
 
   useEffect(() => {

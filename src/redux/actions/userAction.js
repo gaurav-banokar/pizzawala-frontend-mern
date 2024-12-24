@@ -29,7 +29,7 @@ export const loadUser = () => async (dispatch) => {
 export const uploadProfilePhoto = (form) => async (dispatch) => {
 
     try {
-        console.log(form);
+        // console.log(form);
         dispatch({
             type: "uploadProfilePhotoRequest",
         })
