@@ -5,25 +5,20 @@ import MenuItemCard from "./MenuItemCard";
 import toast from "react-hot-toast";
 
 import { motion } from "framer-motion";
-import "./menuItemsGroup.scss";
 import { getAllItemsByCategoryAction } from "../../redux/actions/itemAction";
+// css
+import "./menuItemsGroup.scss";
+
 
 const MenuItemsGroup = ({ items }) => {
   const dispatch = useDispatch();
 
- 
-  
 
   useEffect(() => {
     dispatch(getAllItemsByCategoryAction("vegPizza"));
   }, [dispatch]);
 
 
- 
-  
- 
-
- 
 
 
   const addToCartHandler = (id, quantity) => {
@@ -38,8 +33,8 @@ const MenuItemsGroup = ({ items }) => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.5 }}
     >
-      {items.length !== 0 ? (
-        items.map((item) => {
+      {items !== undefined && items.length !== 0 ? (
+       items && items.map((item) => {
           return (
             <MenuItemCard
               key={item._id}
