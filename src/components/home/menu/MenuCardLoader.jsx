@@ -3,20 +3,12 @@ import { motion } from "framer-motion";
 
 import "../menu/menu.scss";
 
-const MenuCard = ({
-  itemNum,
-  pizzaSrc,
-  price,
-  title,
-  category,
-  id,
-  handler,
-  quantity,
-  delay,
+const MenuCardLoader = ({
+ 
 }) => {
   return (
     <motion.div
-      className="menuCard"
+      className="menuCardLoader"
       initial={{
         x: "-100%",
         opacity: 0,
@@ -29,18 +21,18 @@ const MenuCard = ({
         delay,
       }}
     >
-      <div>Item {itemNum}</div>
+      <div></div>
       <main>
-        <img src={pizzaSrc} alt={itemNum} />
+        <img src={""} alt={""} />
 
-        <h5>₹ {price}</h5>
+        <h5></h5>
 
-        <p>{title} </p>
+        <p> </p>
 
-        <button onClick={() => handler(id, quantity)}> Buy Now</button>
+        <button onClick={() => handler(id, quantity)}> </button>
       </main>
     </motion.div>
   );
 };
 
-export default MenuCard;
+export default MenuCardLoader;

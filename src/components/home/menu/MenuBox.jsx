@@ -7,6 +7,7 @@ import { BiChevronRight } from "react-icons/bi";
 import MenuCard from "./MenuCard";
 
 import "./menuBox.scss";
+import MenuCardLoader from "./MenuCardLoader";
 
 const MenuBox = ({ categoryName, arr }) => {
   const dispatch = useDispatch();
@@ -26,30 +27,29 @@ const MenuBox = ({ categoryName, arr }) => {
     <div className="menuBox">
       <h2>{arr.length !== 0 && categoryName}</h2>
       <div className="menuBoxSecondDiv">
-        {arr.length !== 0 &&
+        { arr.length !== 0 ?
           arr.map((item, index) => {
-            return index <= itemPerPage ? (
+            return index <= itemPerPage && (
               <MenuCard
-                itemNum={item.itemNumber}
-                key={item._id}
-                pizzaSrc={item.itemImage.url}
-                price={item.itemPrice}
-                title={item.itemName}
-                category={item.itemCategory}
-                id={item._id}
+                itemNum={item && item.itemNumber}
+                key={item && item._id}
+                pizzaSrc={item && item.itemImage.url}
+                price={item && item.itemPrice}
+                title={item && item.itemName}
+                category={item && item.itemCategory}
+                id={item && item._id}
                 handler={addToCartHandler}
                 quantity={1}
                 delay={0.3 * index}
               />
-            ) : (
-              ""
-            );
-          })}
-        {arr.length !== 0 && (
+            ) 
+          }) : <MenuCardLoader/>
+        }
+        {
           <button onClick={buttonHandler}>
             <BiChevronRight />
           </button>
-        )}
+        }
       </div>
     </div>
   );

@@ -90,6 +90,74 @@
     }
   }
 }
+.menuCardLoader {
+  background-color: white;
+  width: 250px; //350
+  height: 280px; //480
+  margin: 1vmax;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.495);
+  box-sizing: border-box;
+  margin-bottom: 60px;
+
+  > div {
+    border-radius: 20px 20px 0 0;
+    background-color: $reddish;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    height: 1.3rem;
+    justify-content: center;
+    opacity: 0.5;
+  }
+
+  > main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > img {
+      height: 5rem;
+      width: 100%;
+      object-fit: contain;
+      background: transparent;
+      margin-bottom: 8px;
+    }
+
+    > h5 {
+      font-size: 1.4rem;
+    }
+    > p {
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 0.8rem;
+       
+      
+    }
+
+    > button {
+      background-color: $reddish;
+      position: relative;
+      bottom: 0;
+      text-align: center;
+      color: white;
+      border: none;
+      opacity: 0.5;
+      width: 60%;
+      height: 40px;
+      border-radius: 50px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
 
 @media (max-width: 600px) {
   #menu {
@@ -104,7 +172,24 @@
     width: 240px;
     height: max-content;
     margin: 2.5rem 0;
-
+  
+    > main {
+      > img {
+        width: 60%;
+      }
+      > h5 {
+        font-size: 1.4rem;
+      }
+      > button {
+        width: 10rem;
+      }
+    }
+  }
+  .menuCardLoader {
+    width: 240px;
+    height: max-content;
+    margin: 2.5rem 0;
+  
     > main {
       > img {
         width: 60%;
@@ -121,6 +206,10 @@
 
 @media (min-width: 601px) and (max-width: 1300px) {
   .menuCard {
+    width: 16rem;
+    height: 30%;
+  }
+  .menuCardLoader {
     width: 16rem;
     height: 30%;
   }
