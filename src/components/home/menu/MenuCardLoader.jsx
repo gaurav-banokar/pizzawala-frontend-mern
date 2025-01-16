@@ -18,7 +18,7 @@ const MenuCardLoader = ({
         opacity: 1,
       }}
       transition={{
-        delay,
+        delay:0.3,
       }}
     >
       <div></div>
@@ -29,7 +29,7 @@ const MenuCardLoader = ({
 
         <p> </p>
 
-        <button onClick={() => handler(id, quantity)}> </button>
+        <button> </button>
       </main>
     </motion.div>
   );
