@@ -37,7 +37,9 @@ const MyProfile = ({ admin }) => {
   const [image,setImage] = useState("");
 
   const { user } = useSelector(state => state.auth)
-  const  { profilePhoto } = useSelector(state => state.profilePhoto)
+  const { message } = useSelector(state => state.upload)
+
+  const  { profilePhoto } = useSelector(state => state.profilePhoto.url)
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
@@ -72,10 +74,10 @@ const MyProfile = ({ admin }) => {
   }, [dispatch])
 
   useEffect(() => {
-    if(profilePhoto) {
+    if(message) {
       toast.success("Profile Photo Updated")
     }
-  },[profilePhoto])
+  },[])
   
 
   return (

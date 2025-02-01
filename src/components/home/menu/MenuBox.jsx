@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BiChevronRight } from "react-icons/bi";
 import MenuCard from "./MenuCard";
+import MenuCardLoader from "./MenuCardLoader";
 
 import "./menuBox.scss";
-import MenuCardLoader from "./MenuCardLoader";
 
 const MenuBox = ({ categoryName, arr }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ const MenuBox = ({ categoryName, arr }) => {
     dispatch(addToCart(id, quantity));
     toast.success("Pizza added to cart");
   };
-
   const buttonHandler = (e) => {
     navigate("/menu");
     window.scroll({top:"top",behavior:"smooth"})

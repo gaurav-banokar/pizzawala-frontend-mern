@@ -44,7 +44,7 @@ function App() {
 
 
   const { items } = useSelector((state) => state.items);
- // const isItem = Object.values(items)[0].length !== 0 || Object.values(items)[1].length !== 0
+  const isItem = Object.values(items)[0].length !== 0 || Object.values(items)[1].length !== 0
 
 
   useEffect(() => {
@@ -66,6 +66,7 @@ function App() {
     <div className="App">
 
       {
+        isItem ?
          <Router>
           <Header isAuthenticated={isAuthenticated} />
 
@@ -95,7 +96,7 @@ function App() {
           </Routes>
 
           <Footer />
-        </Router> 
+        </Router> : <Loader/>
         
 
       }
