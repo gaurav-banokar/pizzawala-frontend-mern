@@ -104,9 +104,16 @@ export const getAllItemsAction = (category) => async (dispatch) => {
            
         };
 
+        if(category) {
+            const { data } = await axios.get(`${server}/getAllItemsByCategory?category=${category}`,config);
 
-        const { data } = await axios.get(`${server}/getAllItemsByCategory?category=${category}`,config);
-        console.log(data);
+        }
+        else {
+            dispatch({
+                type: "itemsByCategoryFail",
+                payload: error.response.data.message,
+            })
+        }
         switch (category) {
             case "vegPizza":
                 dispatch({
