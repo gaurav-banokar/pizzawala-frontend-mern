@@ -111,9 +111,10 @@ export const getAllItemsAction = (category) => async (dispatch) => {
         else {
             dispatch({
                 type: "itemsByCategoryFail",
-                payload: error.response.data.message,
+                payload: "category is undefined",
             })
         }
+   
         switch (category) {
             case "vegPizza":
                 dispatch({
