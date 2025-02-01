@@ -106,6 +106,42 @@ export const getAllItemsAction = (category) => async (dispatch) => {
 
         if(category) {
             const { data } = await axios.get(`${server}/getAllItemsByCategory?category=${category}`,config);
+            
+            switch (category) {
+                case "vegPizza":
+                    dispatch({
+                        type: "vegPizzaItemsSuccess",
+                        payload: data.newCacheProducts,
+                    })
+                    break;
+                case "nonVegPizza":
+                    dispatch({
+                        type: "nonVegPizzaItemsSuccess",
+                        payload: data.newCacheProducts,
+                    })
+                    break;
+                case "pizzaMania":
+                    dispatch({
+                        type: "pizzaManiaItemsSuccess",
+                        payload: data.newCacheProducts,
+                    })
+                    break;
+                case "sideAndBeverages":
+                    dispatch({
+                        type: "sideAndBeveragesItemsSuccess",
+                        payload: data.newCacheProducts,
+                    })
+                    break;
+                case "pasta":
+                    dispatch({
+                        type: "pastaItemsSuccess",
+                        payload: data.newCacheProducts,
+                    })
+                    break;
+            
+                default:
+                    break;
+            }
 
         }
         else {
@@ -115,41 +151,7 @@ export const getAllItemsAction = (category) => async (dispatch) => {
             })
         }
    
-        switch (category) {
-            case "vegPizza":
-                dispatch({
-                    type: "vegPizzaItemsSuccess",
-                    payload: data.newCacheProducts,
-                })
-                break;
-            case "nonVegPizza":
-                dispatch({
-                    type: "nonVegPizzaItemsSuccess",
-                    payload: data.newCacheProducts,
-                })
-                break;
-            case "pizzaMania":
-                dispatch({
-                    type: "pizzaManiaItemsSuccess",
-                    payload: data.newCacheProducts,
-                })
-                break;
-            case "sideAndBeverages":
-                dispatch({
-                    type: "sideAndBeveragesItemsSuccess",
-                    payload: data.newCacheProducts,
-                })
-                break;
-            case "pasta":
-                dispatch({
-                    type: "pastaItemsSuccess",
-                    payload: data.newCacheProducts,
-                })
-                break;
-        
-            default:
-                break;
-        }
+      
       
 
     } catch (error) {
