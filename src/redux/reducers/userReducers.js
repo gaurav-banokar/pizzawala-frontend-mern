@@ -55,7 +55,7 @@ export const authReducer = createReducer(intialState ,
     })
 
 
-export const getProfilePhotoReducer = createReducer({ profilePhoto:""}, {
+export const getProfilePhotoReducer = createReducer({ profilePhoto:{}}, {
     getProfilePhotoRequest:(state) => {
         state.loading = true;
     },
