@@ -25,9 +25,8 @@ import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./redux/actions/userAction";
 import { ProtectedRoute } from "protected-route-react";
-import { getAllItemsByCategoryAction } from "./redux/actions/itemAction";
+import { getAllItemsAction } from "./redux/actions/itemAction";
 import OrdersNotFound from "./components/myOrders/OrdersNotFound";
-
 
 
 //styles
@@ -40,7 +39,6 @@ function App() {
   const dispatch = useDispatch();
 
   const {  isAuthenticated, error, user } = useSelector((state) => state.auth);
-
 
 
   const { items } = useSelector((state) => state.items);
@@ -57,8 +55,8 @@ function App() {
 
   useEffect(() => {
     dispatch(loadUser())
-    dispatch(getAllItemsByCategoryAction())
-
+    dispatch(getAllItemsAction("vegPizza"));
+    dispatch(getAllItemsAction("nonVegPizza"));
   }, [dispatch])
 
 
@@ -98,7 +96,6 @@ function App() {
           <Footer />
         </Router> : <Loader/>
         
-
       }
       <Toaster />
     </div>

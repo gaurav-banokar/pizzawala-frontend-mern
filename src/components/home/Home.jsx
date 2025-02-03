@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { getAllItemsAction } from "../../redux/actions/itemAction";
 
 const Home = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
