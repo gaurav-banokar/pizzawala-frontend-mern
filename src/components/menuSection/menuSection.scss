@@ -41,6 +41,7 @@
 
 @media (max-width: 600px) {
   .menuSection {
+    overflow-x: hidden;
     > div:first-of-type {
       gap: 10px;
       > input {
