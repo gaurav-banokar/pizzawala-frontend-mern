@@ -39,7 +39,7 @@ const MyProfile = ({ admin }) => {
   const { user } = useSelector(state => state.auth)
   const { message } = useSelector(state => state.upload)
 
-  const  { profilePhoto } = useSelector(state => state.profilePhoto && state.profilePhoto.url)
+  const  { profilePhoto } = useSelector(state => state.profilePhoto.url)
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
@@ -70,7 +70,7 @@ const MyProfile = ({ admin }) => {
 
 
   useEffect(() => {
-    dispatch(getProfilePhoto(user && user._id))
+    dispatch(getProfilePhoto(user._id))
   }, [dispatch])
 
   useEffect(() => {
