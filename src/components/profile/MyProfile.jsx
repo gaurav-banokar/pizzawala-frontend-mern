@@ -39,7 +39,7 @@ const MyProfile = ({ admin }) => {
   const { user } = useSelector(state => state.auth)
   const { message } = useSelector(state => state.upload)
 
-  const  { profilePhoto } = useSelector(state => state.auth.user.profilePhoto.url)
+  const  { profilePhotoUrl } = useSelector(state => state.profilePhoto && state.profilePhoto.url)
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
@@ -88,7 +88,7 @@ const MyProfile = ({ admin }) => {
       </div>
       <main className="myProfileMain">
         <div>
-        <motion.img {...options} src={profilePhoto ? profilePhoto : photo} alt="user profile"></motion.img>
+        <motion.img {...options} src={profilePhotoUrl ? profilePhotoUrl : photo} alt="user profile"></motion.img>
         <button onClick={selectPic}><ImImage size={"20px"}/><input type="file" id="fileInput" value={imagePrev} onChange={imageHandler}/></button>
         </div>
 
