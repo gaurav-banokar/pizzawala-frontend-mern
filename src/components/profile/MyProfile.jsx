@@ -88,7 +88,7 @@ const MyProfile = ({ admin }) => {
       </div>
       <main className="myProfileMain">
         <div>
-        <motion.img {...options} src={profilePhoto ? profilePhoto.url : photo} alt="user profile"></motion.img>
+        <motion.img {...options} src={profilePhoto?.url ? profilePhoto.url : photo} alt="user profile"></motion.img>
         <button onClick={selectPic}><ImImage size={"20px"}/><input type="file" id="fileInput" value={imagePrev} onChange={imageHandler}/></button>
         </div>
 
